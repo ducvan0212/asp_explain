@@ -1,0 +1,9 @@
+:- not goal(variable(("on", constant("c"), constant("b"))), value(variable(("on", constant("c"), constant("b"))), true)).
+:- not goal(variable(("on", constant("b"), constant("d"))), value(variable(("on", constant("b"), constant("d"))), true)).
+:- not goal(variable(("on", constant("d"), constant("f"))), value(variable(("on", constant("d"), constant("f"))), true)).
+:- not goal(variable(("on", constant("f"), constant("i"))), value(variable(("on", constant("f"), constant("i"))), true)).
+:- not goal(variable(("on", constant("i"), constant("a"))), value(variable(("on", constant("i"), constant("a"))), true)).
+:- not goal(variable(("on", constant("a"), constant("e"))), value(variable(("on", constant("a"), constant("e"))), true)).
+:- not goal(variable(("on", constant("e"), constant("h"))), value(variable(("on", constant("e"), constant("h"))), true)).
+:- not goal(variable(("on", constant("h"), constant("g"))), value(variable(("on", constant("h"), constant("g"))), true)).
+:- not goal(variable(("on", constant("g"), constant("j"))), value(variable(("on", constant("g"), constant("j"))), true)).

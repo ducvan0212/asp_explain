@@ -1,0 +1,489 @@
+boolean(true).
+boolean(false).
+type(type("block")).
+variable(variable("handempty")).
+constant(constant("b")).
+has(constant("b"),type("block")).
+constant(constant("a")).
+has(constant("a"),type("block")).
+initialState(variable("handempty"),value(variable("handempty"),true)).
+initialState(variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)).
+initialState(variable(("on",constant("a"),constant("b"))),value(variable(("on",constant("a"),constant("b"))),true)).
+initialState(variable(("ontable",constant("b"))),value(variable(("ontable",constant("b"))),true)).
+goal(variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)).
+step(1).
+step(2).
+step(3).
+h(variable("handempty"),1):-initialState(variable("handempty"),value(variable("handempty"),true)).
+h(variable(("clear",constant("a"))),1):-initialState(variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)).
+h(variable(("on",constant("a"),constant("b"))),1):-initialState(variable(("on",constant("a"),constant("b"))),value(variable(("on",constant("a"),constant("b"))),true)).
+h(variable(("ontable",constant("b"))),1):-initialState(variable(("ontable",constant("b"))),value(variable(("ontable",constant("b"))),true)).
+action(action(("putdown",constant("b")))):-has(constant("b"),type("block")).
+action(action(("putdown",constant("a")))):-has(constant("a"),type("block")).
+postcondition(action(("putdown",constant("b"))),effect(unconditional),variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),true)):-action(action(("putdown",constant("b")))).
+postcondition(action(("putdown",constant("a"))),effect(unconditional),variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)):-action(action(("putdown",constant("a")))).
+postcondition(action(("putdown",constant("b"))),effect(unconditional),variable(("ontable",constant("b"))),value(variable(("ontable",constant("b"))),true)):-action(action(("putdown",constant("b")))).
+postcondition(action(("putdown",constant("a"))),effect(unconditional),variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)):-action(action(("putdown",constant("a")))).
+action(action(("stack",constant("b"),constant("b")))):-has(constant("b"),type("block")),has(constant("b"),type("block")).
+action(action(("stack",constant("a"),constant("b")))):-has(constant("b"),type("block")),has(constant("a"),type("block")).
+action(action(("stack",constant("b"),constant("a")))):-has(constant("a"),type("block")),has(constant("b"),type("block")).
+action(action(("stack",constant("a"),constant("a")))):-has(constant("a"),type("block")),has(constant("a"),type("block")).
+postcondition(action(("stack",constant("b"),constant("b"))),effect(unconditional),variable(("on",constant("b"),constant("b"))),value(variable(("on",constant("b"),constant("b"))),true)):-action(action(("stack",constant("b"),constant("b")))).
+postcondition(action(("stack",constant("a"),constant("b"))),effect(unconditional),variable(("on",constant("a"),constant("b"))),value(variable(("on",constant("a"),constant("b"))),true)):-action(action(("stack",constant("a"),constant("b")))).
+postcondition(action(("stack",constant("b"),constant("a"))),effect(unconditional),variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),true)):-action(action(("stack",constant("b"),constant("a")))).
+postcondition(action(("stack",constant("a"),constant("a"))),effect(unconditional),variable(("on",constant("a"),constant("a"))),value(variable(("on",constant("a"),constant("a"))),true)):-action(action(("stack",constant("a"),constant("a")))).
+postcondition(action(("stack",constant("b"),constant("b"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)):-action(action(("stack",constant("b"),constant("b")))).
+postcondition(action(("stack",constant("a"),constant("b"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)):-action(action(("stack",constant("a"),constant("b")))).
+postcondition(action(("stack",constant("b"),constant("a"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)):-action(action(("stack",constant("b"),constant("a")))).
+postcondition(action(("stack",constant("a"),constant("a"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)):-action(action(("stack",constant("a"),constant("a")))).
+action(action(("unstack",constant("b"),constant("b")))):-has(constant("b"),type("block")),has(constant("b"),type("block")).
+action(action(("unstack",constant("a"),constant("b")))):-has(constant("b"),type("block")),has(constant("a"),type("block")).
+action(action(("unstack",constant("b"),constant("a")))):-has(constant("a"),type("block")),has(constant("b"),type("block")).
+action(action(("unstack",constant("a"),constant("a")))):-has(constant("a"),type("block")),has(constant("a"),type("block")).
+action(action(("pickup",constant("b")))):-has(constant("b"),type("block")).
+action(action(("pickup",constant("a")))):-has(constant("a"),type("block")).
+postcondition(action(("unstack",constant("b"),constant("b"))),effect(unconditional),variable("handempty"),value(variable("handempty"),false)):-action(action(("unstack",constant("b"),constant("b")))).
+postcondition(action(("unstack",constant("a"),constant("b"))),effect(unconditional),variable("handempty"),value(variable("handempty"),false)):-action(action(("unstack",constant("a"),constant("b")))).
+postcondition(action(("unstack",constant("b"),constant("a"))),effect(unconditional),variable("handempty"),value(variable("handempty"),false)):-action(action(("unstack",constant("b"),constant("a")))).
+postcondition(action(("unstack",constant("a"),constant("a"))),effect(unconditional),variable("handempty"),value(variable("handempty"),false)):-action(action(("unstack",constant("a"),constant("a")))).
+postcondition(action(("pickup",constant("b"))),effect(unconditional),variable(("ontable",constant("b"))),value(variable(("ontable",constant("b"))),false)):-action(action(("pickup",constant("b")))).
+postcondition(action(("pickup",constant("a"))),effect(unconditional),variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),false)):-action(action(("pickup",constant("a")))).
+postcondition(action(("pickup",constant("b"))),effect(unconditional),variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),false)):-action(action(("pickup",constant("b")))).
+postcondition(action(("pickup",constant("a"))),effect(unconditional),variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),false)):-action(action(("pickup",constant("a")))).
+#delayed(1):-step(1),goal(variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)),not h(variable(("ontable",constant("a"))),1).
+#delayed(2):-step(2),goal(variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)),not h(variable(("ontable",constant("a"))),2).
+#delayed(3):-step(3),goal(variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)),not h(variable(("ontable",constant("a"))),3).
+#delayed(4):-postcondition(action(("putdown",constant("b"))),effect(unconditional),variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),true)),step(1),occurs(("putdown",constant("b")),1),action(action(("putdown",constant("b")))).
+#delayed(5):-postcondition(action(("putdown",constant("b"))),effect(unconditional),variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),true)),step(2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+#delayed(6):-postcondition(action(("putdown",constant("b"))),effect(unconditional),variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),true)),step(3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+#delayed(7):-postcondition(action(("putdown",constant("a"))),effect(unconditional),variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)),step(1),occurs(("putdown",constant("a")),1),action(action(("putdown",constant("a")))).
+#delayed(8):-postcondition(action(("putdown",constant("a"))),effect(unconditional),variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)),step(2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+#delayed(9):-postcondition(action(("putdown",constant("a"))),effect(unconditional),variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)),step(3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+#delayed(10):-postcondition(action(("putdown",constant("b"))),effect(unconditional),variable(("ontable",constant("b"))),value(variable(("ontable",constant("b"))),true)),step(1),occurs(("putdown",constant("b")),1),action(action(("putdown",constant("b")))).
+#delayed(11):-postcondition(action(("putdown",constant("b"))),effect(unconditional),variable(("ontable",constant("b"))),value(variable(("ontable",constant("b"))),true)),step(2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+#delayed(12):-postcondition(action(("putdown",constant("b"))),effect(unconditional),variable(("ontable",constant("b"))),value(variable(("ontable",constant("b"))),true)),step(3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+#delayed(13):-postcondition(action(("putdown",constant("a"))),effect(unconditional),variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)),step(1),occurs(("putdown",constant("a")),1),action(action(("putdown",constant("a")))).
+#delayed(14):-postcondition(action(("putdown",constant("a"))),effect(unconditional),variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)),step(2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+#delayed(15):-postcondition(action(("putdown",constant("a"))),effect(unconditional),variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)),step(3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+#delayed(16):-postcondition(action(("stack",constant("b"),constant("b"))),effect(unconditional),variable(("on",constant("b"),constant("b"))),value(variable(("on",constant("b"),constant("b"))),true)),step(1),occurs(("stack",constant("b"),constant("b")),1),action(action(("stack",constant("b"),constant("b")))).
+#delayed(17):-postcondition(action(("stack",constant("b"),constant("b"))),effect(unconditional),variable(("on",constant("b"),constant("b"))),value(variable(("on",constant("b"),constant("b"))),true)),step(2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+#delayed(18):-postcondition(action(("stack",constant("b"),constant("b"))),effect(unconditional),variable(("on",constant("b"),constant("b"))),value(variable(("on",constant("b"),constant("b"))),true)),step(3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+#delayed(19):-postcondition(action(("stack",constant("a"),constant("b"))),effect(unconditional),variable(("on",constant("a"),constant("b"))),value(variable(("on",constant("a"),constant("b"))),true)),step(1),occurs(("stack",constant("a"),constant("b")),1),action(action(("stack",constant("a"),constant("b")))).
+#delayed(20):-postcondition(action(("stack",constant("a"),constant("b"))),effect(unconditional),variable(("on",constant("a"),constant("b"))),value(variable(("on",constant("a"),constant("b"))),true)),step(2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+#delayed(21):-postcondition(action(("stack",constant("a"),constant("b"))),effect(unconditional),variable(("on",constant("a"),constant("b"))),value(variable(("on",constant("a"),constant("b"))),true)),step(3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+#delayed(22):-postcondition(action(("stack",constant("b"),constant("a"))),effect(unconditional),variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),true)),step(1),occurs(("stack",constant("b"),constant("a")),1),action(action(("stack",constant("b"),constant("a")))).
+#delayed(23):-postcondition(action(("stack",constant("b"),constant("a"))),effect(unconditional),variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),true)),step(2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+#delayed(24):-postcondition(action(("stack",constant("b"),constant("a"))),effect(unconditional),variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),true)),step(3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+#delayed(25):-postcondition(action(("stack",constant("a"),constant("a"))),effect(unconditional),variable(("on",constant("a"),constant("a"))),value(variable(("on",constant("a"),constant("a"))),true)),step(1),occurs(("stack",constant("a"),constant("a")),1),action(action(("stack",constant("a"),constant("a")))).
+#delayed(26):-postcondition(action(("stack",constant("a"),constant("a"))),effect(unconditional),variable(("on",constant("a"),constant("a"))),value(variable(("on",constant("a"),constant("a"))),true)),step(2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+#delayed(27):-postcondition(action(("stack",constant("a"),constant("a"))),effect(unconditional),variable(("on",constant("a"),constant("a"))),value(variable(("on",constant("a"),constant("a"))),true)),step(3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+#delayed(28):-postcondition(action(("stack",constant("b"),constant("b"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(1),occurs(("stack",constant("b"),constant("b")),1),action(action(("stack",constant("b"),constant("b")))).
+#delayed(29):-postcondition(action(("stack",constant("b"),constant("b"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+#delayed(30):-postcondition(action(("stack",constant("b"),constant("b"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+#delayed(31):-postcondition(action(("stack",constant("a"),constant("b"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(1),occurs(("stack",constant("a"),constant("b")),1),action(action(("stack",constant("a"),constant("b")))).
+#delayed(32):-postcondition(action(("stack",constant("a"),constant("b"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+#delayed(33):-postcondition(action(("stack",constant("a"),constant("b"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+#delayed(34):-postcondition(action(("stack",constant("b"),constant("a"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(1),occurs(("stack",constant("b"),constant("a")),1),action(action(("stack",constant("b"),constant("a")))).
+#delayed(35):-postcondition(action(("stack",constant("b"),constant("a"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+#delayed(36):-postcondition(action(("stack",constant("b"),constant("a"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+#delayed(37):-postcondition(action(("stack",constant("a"),constant("a"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(1),occurs(("stack",constant("a"),constant("a")),1),action(action(("stack",constant("a"),constant("a")))).
+#delayed(38):-postcondition(action(("stack",constant("a"),constant("a"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+#delayed(39):-postcondition(action(("stack",constant("a"),constant("a"))),effect(unconditional),variable("handempty"),value(variable("handempty"),true)),step(3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+h(variable("handempty"),4):-step(3),h(variable("handempty"),3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+h(variable("handempty"),4):-step(3),h(variable("handempty"),3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+h(variable("handempty"),4):-step(3),h(variable("handempty"),3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+h(variable("handempty"),4):-step(3),h(variable("handempty"),3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+h(variable("handempty"),4):-step(3),h(variable("handempty"),3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+h(variable("handempty"),4):-step(3),h(variable("handempty"),3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+h(variable("handempty"),4):-step(3),h(variable("handempty"),3),occurs(("pickup",constant("b")),3),action(action(("pickup",constant("b")))).
+h(variable("handempty"),4):-step(3),h(variable("handempty"),3),occurs(("pickup",constant("a")),3),action(action(("pickup",constant("a")))).
+h(variable("handempty"),3):-step(2),h(variable("handempty"),2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+h(variable("handempty"),3):-step(2),h(variable("handempty"),2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+h(variable("handempty"),3):-step(2),h(variable("handempty"),2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+h(variable("handempty"),3):-step(2),h(variable("handempty"),2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+h(variable("handempty"),3):-step(2),h(variable("handempty"),2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+h(variable("handempty"),3):-step(2),h(variable("handempty"),2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+h(variable("handempty"),3):-step(2),h(variable("handempty"),2),occurs(("pickup",constant("b")),2),action(action(("pickup",constant("b")))).
+h(variable("handempty"),3):-step(2),h(variable("handempty"),2),occurs(("pickup",constant("a")),2),action(action(("pickup",constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("unstack",constant("b"),constant("b")),3),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("unstack",constant("a"),constant("b")),3),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("unstack",constant("b"),constant("a")),3),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("unstack",constant("a"),constant("a")),3),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("pickup",constant("b")),3),action(action(("pickup",constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),4):-step(3),h(variable(("on",constant("a"),constant("a"))),3),occurs(("pickup",constant("a")),3),action(action(("pickup",constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("unstack",constant("b"),constant("b")),2),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("unstack",constant("a"),constant("b")),2),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("unstack",constant("b"),constant("a")),2),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("unstack",constant("a"),constant("a")),2),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("pickup",constant("b")),2),action(action(("pickup",constant("b")))).
+h(variable(("on",constant("a"),constant("a"))),3):-step(2),h(variable(("on",constant("a"),constant("a"))),2),occurs(("pickup",constant("a")),2),action(action(("pickup",constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("unstack",constant("b"),constant("b")),3),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("unstack",constant("a"),constant("b")),3),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("unstack",constant("b"),constant("a")),3),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("unstack",constant("a"),constant("a")),3),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("pickup",constant("b")),3),action(action(("pickup",constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),4):-step(3),h(variable(("on",constant("b"),constant("a"))),3),occurs(("pickup",constant("a")),3),action(action(("pickup",constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("unstack",constant("b"),constant("b")),2),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("unstack",constant("a"),constant("b")),2),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("unstack",constant("b"),constant("a")),2),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("unstack",constant("a"),constant("a")),2),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("pickup",constant("b")),2),action(action(("pickup",constant("b")))).
+h(variable(("on",constant("b"),constant("a"))),3):-step(2),h(variable(("on",constant("b"),constant("a"))),2),occurs(("pickup",constant("a")),2),action(action(("pickup",constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("unstack",constant("b"),constant("b")),3),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("unstack",constant("a"),constant("b")),3),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("unstack",constant("b"),constant("a")),3),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("unstack",constant("a"),constant("a")),3),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("pickup",constant("b")),3),action(action(("pickup",constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),4):-step(3),h(variable(("on",constant("a"),constant("b"))),3),occurs(("pickup",constant("a")),3),action(action(("pickup",constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("unstack",constant("b"),constant("b")),2),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("unstack",constant("a"),constant("b")),2),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("unstack",constant("b"),constant("a")),2),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("unstack",constant("a"),constant("a")),2),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("pickup",constant("b")),2),action(action(("pickup",constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),3):-step(2),h(variable(("on",constant("a"),constant("b"))),2),occurs(("pickup",constant("a")),2),action(action(("pickup",constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("unstack",constant("b"),constant("b")),3),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("unstack",constant("a"),constant("b")),3),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("unstack",constant("b"),constant("a")),3),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("unstack",constant("a"),constant("a")),3),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("pickup",constant("b")),3),action(action(("pickup",constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),4):-step(3),h(variable(("on",constant("b"),constant("b"))),3),occurs(("pickup",constant("a")),3),action(action(("pickup",constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("unstack",constant("b"),constant("b")),2),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("unstack",constant("a"),constant("b")),2),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("unstack",constant("b"),constant("a")),2),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("unstack",constant("a"),constant("a")),2),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("pickup",constant("b")),2),action(action(("pickup",constant("b")))).
+h(variable(("on",constant("b"),constant("b"))),3):-step(2),h(variable(("on",constant("b"),constant("b"))),2),occurs(("pickup",constant("a")),2),action(action(("pickup",constant("a")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("unstack",constant("b"),constant("b")),3),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("unstack",constant("a"),constant("b")),3),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("unstack",constant("b"),constant("a")),3),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("unstack",constant("a"),constant("a")),3),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("ontable",constant("a"))),4):-step(3),h(variable(("ontable",constant("a"))),3),occurs(("pickup",constant("b")),3),action(action(("pickup",constant("b")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("unstack",constant("b"),constant("b")),2),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("unstack",constant("a"),constant("b")),2),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("unstack",constant("b"),constant("a")),2),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("unstack",constant("a"),constant("a")),2),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("ontable",constant("a"))),3):-step(2),h(variable(("ontable",constant("a"))),2),occurs(("pickup",constant("b")),2),action(action(("pickup",constant("b")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("unstack",constant("b"),constant("b")),3),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("unstack",constant("a"),constant("b")),3),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("unstack",constant("b"),constant("a")),3),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("unstack",constant("a"),constant("a")),3),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("ontable",constant("b"))),4):-step(3),h(variable(("ontable",constant("b"))),3),occurs(("pickup",constant("a")),3),action(action(("pickup",constant("a")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("unstack",constant("b"),constant("b")),2),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("unstack",constant("a"),constant("b")),2),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("unstack",constant("b"),constant("a")),2),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("unstack",constant("a"),constant("a")),2),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("ontable",constant("b"))),3):-step(2),h(variable(("ontable",constant("b"))),2),occurs(("pickup",constant("a")),2),action(action(("pickup",constant("a")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("unstack",constant("b"),constant("b")),3),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("unstack",constant("a"),constant("b")),3),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("unstack",constant("b"),constant("a")),3),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("unstack",constant("a"),constant("a")),3),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("clear",constant("a"))),4):-step(3),h(variable(("clear",constant("a"))),3),occurs(("pickup",constant("b")),3),action(action(("pickup",constant("b")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("unstack",constant("b"),constant("b")),2),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("unstack",constant("a"),constant("b")),2),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("unstack",constant("b"),constant("a")),2),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("unstack",constant("a"),constant("a")),2),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("clear",constant("a"))),3):-step(2),h(variable(("clear",constant("a"))),2),occurs(("pickup",constant("b")),2),action(action(("pickup",constant("b")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("unstack",constant("b"),constant("b")),3),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("unstack",constant("a"),constant("b")),3),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("unstack",constant("b"),constant("a")),3),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("unstack",constant("a"),constant("a")),3),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("clear",constant("b"))),4):-step(3),h(variable(("clear",constant("b"))),3),occurs(("pickup",constant("a")),3),action(action(("pickup",constant("a")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("unstack",constant("b"),constant("b")),2),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("unstack",constant("a"),constant("b")),2),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("unstack",constant("b"),constant("a")),2),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("unstack",constant("a"),constant("a")),2),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("clear",constant("b"))),3):-step(2),h(variable(("clear",constant("b"))),2),occurs(("pickup",constant("a")),2),action(action(("pickup",constant("a")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("putdown",constant("b")),1),action(action(("putdown",constant("b")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("putdown",constant("a")),1),action(action(("putdown",constant("a")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("stack",constant("b"),constant("b")),1),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("stack",constant("a"),constant("b")),1),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("stack",constant("b"),constant("a")),1),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("stack",constant("a"),constant("a")),1),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("unstack",constant("b"),constant("b")),1),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("unstack",constant("a"),constant("b")),1),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("unstack",constant("b"),constant("a")),1),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("unstack",constant("a"),constant("a")),1),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("ontable",constant("b"))),2):-step(1),h(variable(("ontable",constant("b"))),1),occurs(("pickup",constant("a")),1),action(action(("pickup",constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("putdown",constant("b")),1),action(action(("putdown",constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("putdown",constant("a")),1),action(action(("putdown",constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("stack",constant("b"),constant("b")),1),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("stack",constant("a"),constant("b")),1),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("stack",constant("b"),constant("a")),1),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("stack",constant("a"),constant("a")),1),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("unstack",constant("b"),constant("b")),1),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("unstack",constant("a"),constant("b")),1),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("unstack",constant("b"),constant("a")),1),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("unstack",constant("a"),constant("a")),1),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("pickup",constant("b")),1),action(action(("pickup",constant("b")))).
+h(variable(("on",constant("a"),constant("b"))),2):-step(1),h(variable(("on",constant("a"),constant("b"))),1),occurs(("pickup",constant("a")),1),action(action(("pickup",constant("a")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("putdown",constant("b")),1),action(action(("putdown",constant("b")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("putdown",constant("a")),1),action(action(("putdown",constant("a")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("stack",constant("b"),constant("b")),1),action(action(("stack",constant("b"),constant("b")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("stack",constant("a"),constant("b")),1),action(action(("stack",constant("a"),constant("b")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("stack",constant("b"),constant("a")),1),action(action(("stack",constant("b"),constant("a")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("stack",constant("a"),constant("a")),1),action(action(("stack",constant("a"),constant("a")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("unstack",constant("b"),constant("b")),1),action(action(("unstack",constant("b"),constant("b")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("unstack",constant("a"),constant("b")),1),action(action(("unstack",constant("a"),constant("b")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("unstack",constant("b"),constant("a")),1),action(action(("unstack",constant("b"),constant("a")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("unstack",constant("a"),constant("a")),1),action(action(("unstack",constant("a"),constant("a")))).
+h(variable(("clear",constant("a"))),2):-step(1),h(variable(("clear",constant("a"))),1),occurs(("pickup",constant("b")),1),action(action(("pickup",constant("b")))).
+h(variable("handempty"),2):-step(1),h(variable("handempty"),1),occurs(("putdown",constant("b")),1),action(action(("putdown",constant("b")))).
+h(variable("handempty"),2):-step(1),h(variable("handempty"),1),occurs(("putdown",constant("a")),1),action(action(("putdown",constant("a")))).
+h(variable("handempty"),2):-step(1),h(variable("handempty"),1),occurs(("stack",constant("b"),constant("b")),1),action(action(("stack",constant("b"),constant("b")))).
+h(variable("handempty"),2):-step(1),h(variable("handempty"),1),occurs(("stack",constant("a"),constant("b")),1),action(action(("stack",constant("a"),constant("b")))).
+h(variable("handempty"),2):-step(1),h(variable("handempty"),1),occurs(("stack",constant("b"),constant("a")),1),action(action(("stack",constant("b"),constant("a")))).
+h(variable("handempty"),2):-step(1),h(variable("handempty"),1),occurs(("stack",constant("a"),constant("a")),1),action(action(("stack",constant("a"),constant("a")))).
+h(variable("handempty"),2):-step(1),h(variable("handempty"),1),occurs(("pickup",constant("b")),1),action(action(("pickup",constant("b")))).
+h(variable("handempty"),2):-step(1),h(variable("handempty"),1),occurs(("pickup",constant("a")),1),action(action(("pickup",constant("a")))).
+precondition(action(("unstack",constant("b"),constant("b"))),variable(("on",constant("b"),constant("b"))),value(variable(("on",constant("b"),constant("b"))),true)):-action(action(("unstack",constant("b"),constant("b")))).
+precondition(action(("unstack",constant("a"),constant("b"))),variable(("on",constant("a"),constant("b"))),value(variable(("on",constant("a"),constant("b"))),true)):-action(action(("unstack",constant("a"),constant("b")))).
+precondition(action(("unstack",constant("b"),constant("a"))),variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),true)):-action(action(("unstack",constant("b"),constant("a")))).
+precondition(action(("unstack",constant("a"),constant("a"))),variable(("on",constant("a"),constant("a"))),value(variable(("on",constant("a"),constant("a"))),true)):-action(action(("unstack",constant("a"),constant("a")))).
+precondition(action(("unstack",constant("b"),constant("b"))),variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),true)):-action(action(("unstack",constant("b"),constant("b")))).
+precondition(action(("unstack",constant("a"),constant("b"))),variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)):-action(action(("unstack",constant("a"),constant("b")))).
+precondition(action(("unstack",constant("b"),constant("a"))),variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),true)):-action(action(("unstack",constant("b"),constant("a")))).
+precondition(action(("unstack",constant("a"),constant("a"))),variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)):-action(action(("unstack",constant("a"),constant("a")))).
+precondition(action(("unstack",constant("b"),constant("b"))),variable("handempty"),value(variable("handempty"),true)):-action(action(("unstack",constant("b"),constant("b")))).
+precondition(action(("unstack",constant("a"),constant("b"))),variable("handempty"),value(variable("handempty"),true)):-action(action(("unstack",constant("a"),constant("b")))).
+precondition(action(("unstack",constant("b"),constant("a"))),variable("handempty"),value(variable("handempty"),true)):-action(action(("unstack",constant("b"),constant("a")))).
+precondition(action(("unstack",constant("a"),constant("a"))),variable("handempty"),value(variable("handempty"),true)):-action(action(("unstack",constant("a"),constant("a")))).
+precondition(action(("pickup",constant("b"))),variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),true)):-action(action(("pickup",constant("b")))).
+precondition(action(("pickup",constant("a"))),variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)):-action(action(("pickup",constant("a")))).
+precondition(action(("pickup",constant("b"))),variable(("ontable",constant("b"))),value(variable(("ontable",constant("b"))),true)):-action(action(("pickup",constant("b")))).
+precondition(action(("pickup",constant("a"))),variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)):-action(action(("pickup",constant("a")))).
+precondition(action(("pickup",constant("b"))),variable("handempty"),value(variable("handempty"),true)):-action(action(("pickup",constant("b")))).
+precondition(action(("pickup",constant("a"))),variable("handempty"),value(variable("handempty"),true)):-action(action(("pickup",constant("a")))).
+precondition(action(("putdown",constant("b"))),variable(("holding",constant("b"))),value(variable(("holding",constant("b"))),true)):-action(action(("putdown",constant("b")))).
+precondition(action(("putdown",constant("a"))),variable(("holding",constant("a"))),value(variable(("holding",constant("a"))),true)):-action(action(("putdown",constant("a")))).
+precondition(action(("stack",constant("b"),constant("b"))),variable(("holding",constant("b"))),value(variable(("holding",constant("b"))),true)):-action(action(("stack",constant("b"),constant("b")))).
+precondition(action(("stack",constant("a"),constant("b"))),variable(("holding",constant("a"))),value(variable(("holding",constant("a"))),true)):-action(action(("stack",constant("a"),constant("b")))).
+precondition(action(("stack",constant("b"),constant("a"))),variable(("holding",constant("b"))),value(variable(("holding",constant("b"))),true)):-action(action(("stack",constant("b"),constant("a")))).
+precondition(action(("stack",constant("a"),constant("a"))),variable(("holding",constant("a"))),value(variable(("holding",constant("a"))),true)):-action(action(("stack",constant("a"),constant("a")))).
+precondition(action(("stack",constant("b"),constant("b"))),variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),true)):-action(action(("stack",constant("b"),constant("b")))).
+precondition(action(("stack",constant("a"),constant("b"))),variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),true)):-action(action(("stack",constant("a"),constant("b")))).
+precondition(action(("stack",constant("b"),constant("a"))),variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)):-action(action(("stack",constant("b"),constant("a")))).
+precondition(action(("stack",constant("a"),constant("a"))),variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)):-action(action(("stack",constant("a"),constant("a")))).
+executable(("unstack",constant("a"),constant("b")),1):-step(1),action(action(("unstack",constant("a"),constant("b")))).
+executable(("pickup",constant("a")),1):-step(1),action(action(("pickup",constant("a")))),0>=#count{1,variable(("ontable",constant("a"))):not h(variable(("ontable",constant("a"))),1)}.
+executable(("unstack",constant("b"),constant("b")),2):-step(2),action(action(("unstack",constant("b"),constant("b")))),0>=#count{1,variable(("on",constant("b"),constant("b"))):not h(variable(("on",constant("b"),constant("b"))),2);1,variable(("clear",constant("b"))):not h(variable(("clear",constant("b"))),2);1,variable("handempty"):not h(variable("handempty"),2)}.
+executable(("unstack",constant("a"),constant("b")),2):-step(2),action(action(("unstack",constant("a"),constant("b")))),0>=#count{1,variable(("on",constant("a"),constant("b"))):not h(variable(("on",constant("a"),constant("b"))),2);1,variable(("clear",constant("a"))):not h(variable(("clear",constant("a"))),2);1,variable("handempty"):not h(variable("handempty"),2)}.
+executable(("unstack",constant("b"),constant("a")),2):-step(2),action(action(("unstack",constant("b"),constant("a")))),0>=#count{1,variable(("on",constant("b"),constant("a"))):not h(variable(("on",constant("b"),constant("a"))),2);1,variable(("clear",constant("b"))):not h(variable(("clear",constant("b"))),2);1,variable("handempty"):not h(variable("handempty"),2)}.
+executable(("unstack",constant("a"),constant("a")),2):-step(2),action(action(("unstack",constant("a"),constant("a")))),0>=#count{1,variable(("on",constant("a"),constant("a"))):not h(variable(("on",constant("a"),constant("a"))),2);1,variable(("clear",constant("a"))):not h(variable(("clear",constant("a"))),2);1,variable("handempty"):not h(variable("handempty"),2)}.
+executable(("pickup",constant("b")),2):-step(2),action(action(("pickup",constant("b")))),0>=#count{1,variable(("clear",constant("b"))):not h(variable(("clear",constant("b"))),2);1,variable(("ontable",constant("b"))):not h(variable(("ontable",constant("b"))),2);1,variable("handempty"):not h(variable("handempty"),2)}.
+executable(("pickup",constant("a")),2):-step(2),action(action(("pickup",constant("a")))),0>=#count{1,variable(("clear",constant("a"))):not h(variable(("clear",constant("a"))),2);1,variable(("ontable",constant("a"))):not h(variable(("ontable",constant("a"))),2);1,variable("handempty"):not h(variable("handempty"),2)}.
+executable(("unstack",constant("b"),constant("b")),3):-step(3),action(action(("unstack",constant("b"),constant("b")))),0>=#count{1,variable(("on",constant("b"),constant("b"))):not h(variable(("on",constant("b"),constant("b"))),3);1,variable(("clear",constant("b"))):not h(variable(("clear",constant("b"))),3);1,variable("handempty"):not h(variable("handempty"),3)}.
+executable(("unstack",constant("a"),constant("b")),3):-step(3),action(action(("unstack",constant("a"),constant("b")))),0>=#count{1,variable(("on",constant("a"),constant("b"))):not h(variable(("on",constant("a"),constant("b"))),3);1,variable(("clear",constant("a"))):not h(variable(("clear",constant("a"))),3);1,variable("handempty"):not h(variable("handempty"),3)}.
+executable(("unstack",constant("b"),constant("a")),3):-step(3),action(action(("unstack",constant("b"),constant("a")))),0>=#count{1,variable(("on",constant("b"),constant("a"))):not h(variable(("on",constant("b"),constant("a"))),3);1,variable(("clear",constant("b"))):not h(variable(("clear",constant("b"))),3);1,variable("handempty"):not h(variable("handempty"),3)}.
+executable(("unstack",constant("a"),constant("a")),3):-step(3),action(action(("unstack",constant("a"),constant("a")))),0>=#count{1,variable(("on",constant("a"),constant("a"))):not h(variable(("on",constant("a"),constant("a"))),3);1,variable(("clear",constant("a"))):not h(variable(("clear",constant("a"))),3);1,variable("handempty"):not h(variable("handempty"),3)}.
+executable(("pickup",constant("b")),3):-step(3),action(action(("pickup",constant("b")))),0>=#count{1,variable(("clear",constant("b"))):not h(variable(("clear",constant("b"))),3);1,variable(("ontable",constant("b"))):not h(variable(("ontable",constant("b"))),3);1,variable("handempty"):not h(variable("handempty"),3)}.
+executable(("pickup",constant("a")),3):-step(3),action(action(("pickup",constant("a")))),0>=#count{1,variable(("clear",constant("a"))):not h(variable(("clear",constant("a"))),3);1,variable(("ontable",constant("a"))):not h(variable(("ontable",constant("a"))),3);1,variable("handempty"):not h(variable("handempty"),3)}.
+:-occurs(("putdown",constant("b")),1),action(action(("putdown",constant("b")))).
+:-occurs(("putdown",constant("b")),2),action(action(("putdown",constant("b")))).
+:-occurs(("putdown",constant("b")),3),action(action(("putdown",constant("b")))).
+:-occurs(("putdown",constant("a")),1),action(action(("putdown",constant("a")))).
+:-occurs(("putdown",constant("a")),2),action(action(("putdown",constant("a")))).
+:-occurs(("putdown",constant("a")),3),action(action(("putdown",constant("a")))).
+:-occurs(("stack",constant("b"),constant("b")),1),action(action(("stack",constant("b"),constant("b")))).
+:-occurs(("stack",constant("b"),constant("b")),2),action(action(("stack",constant("b"),constant("b")))).
+:-occurs(("stack",constant("b"),constant("b")),3),action(action(("stack",constant("b"),constant("b")))).
+:-occurs(("stack",constant("a"),constant("b")),1),action(action(("stack",constant("a"),constant("b")))).
+:-occurs(("stack",constant("a"),constant("b")),2),action(action(("stack",constant("a"),constant("b")))).
+:-occurs(("stack",constant("a"),constant("b")),3),action(action(("stack",constant("a"),constant("b")))).
+:-occurs(("stack",constant("b"),constant("a")),1),action(action(("stack",constant("b"),constant("a")))).
+:-occurs(("stack",constant("b"),constant("a")),2),action(action(("stack",constant("b"),constant("a")))).
+:-occurs(("stack",constant("b"),constant("a")),3),action(action(("stack",constant("b"),constant("a")))).
+:-occurs(("stack",constant("a"),constant("a")),1),action(action(("stack",constant("a"),constant("a")))).
+:-occurs(("stack",constant("a"),constant("a")),2),action(action(("stack",constant("a"),constant("a")))).
+:-occurs(("stack",constant("a"),constant("a")),3),action(action(("stack",constant("a"),constant("a")))).
+:-occurs(("unstack",constant("b"),constant("b")),1),action(action(("unstack",constant("b"),constant("b")))).
+:-occurs(("unstack",constant("b"),constant("b")),2),action(action(("unstack",constant("b"),constant("b")))),not executable(("unstack",constant("b"),constant("b")),2).
+:-occurs(("unstack",constant("b"),constant("b")),3),action(action(("unstack",constant("b"),constant("b")))),not executable(("unstack",constant("b"),constant("b")),3).
+:-occurs(("unstack",constant("a"),constant("b")),2),action(action(("unstack",constant("a"),constant("b")))),not executable(("unstack",constant("a"),constant("b")),2).
+:-occurs(("unstack",constant("a"),constant("b")),3),action(action(("unstack",constant("a"),constant("b")))),not executable(("unstack",constant("a"),constant("b")),3).
+:-occurs(("unstack",constant("b"),constant("a")),1),action(action(("unstack",constant("b"),constant("a")))).
+:-occurs(("unstack",constant("b"),constant("a")),2),action(action(("unstack",constant("b"),constant("a")))),not executable(("unstack",constant("b"),constant("a")),2).
+:-occurs(("unstack",constant("b"),constant("a")),3),action(action(("unstack",constant("b"),constant("a")))),not executable(("unstack",constant("b"),constant("a")),3).
+:-occurs(("unstack",constant("a"),constant("a")),1),action(action(("unstack",constant("a"),constant("a")))).
+:-occurs(("unstack",constant("a"),constant("a")),2),action(action(("unstack",constant("a"),constant("a")))),not executable(("unstack",constant("a"),constant("a")),2).
+:-occurs(("unstack",constant("a"),constant("a")),3),action(action(("unstack",constant("a"),constant("a")))),not executable(("unstack",constant("a"),constant("a")),3).
+:-occurs(("pickup",constant("b")),1),action(action(("pickup",constant("b")))).
+:-occurs(("pickup",constant("b")),2),action(action(("pickup",constant("b")))),not executable(("pickup",constant("b")),2).
+:-occurs(("pickup",constant("b")),3),action(action(("pickup",constant("b")))),not executable(("pickup",constant("b")),3).
+:-occurs(("pickup",constant("a")),1),action(action(("pickup",constant("a")))),not executable(("pickup",constant("a")),1).
+:-occurs(("pickup",constant("a")),2),action(action(("pickup",constant("a")))),not executable(("pickup",constant("a")),2).
+:-occurs(("pickup",constant("a")),3),action(action(("pickup",constant("a")))),not executable(("pickup",constant("a")),3).
+:-goal(variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)),not h(variable(("ontable",constant("a"))),3).
+variable(variable(("on",constant("b"),constant("b")))):-has(constant("b"),type("block")),has(constant("b"),type("block")).
+variable(variable(("on",constant("a"),constant("b")))):-has(constant("b"),type("block")),has(constant("a"),type("block")).
+variable(variable(("on",constant("b"),constant("a")))):-has(constant("a"),type("block")),has(constant("b"),type("block")).
+variable(variable(("on",constant("a"),constant("a")))):-has(constant("a"),type("block")),has(constant("a"),type("block")).
+variable(variable(("ontable",constant("b")))):-has(constant("b"),type("block")).
+variable(variable(("ontable",constant("a")))):-has(constant("a"),type("block")).
+variable(variable(("clear",constant("b")))):-has(constant("b"),type("block")).
+variable(variable(("clear",constant("a")))):-has(constant("a"),type("block")).
+variable(variable(("holding",constant("b")))):-has(constant("b"),type("block")).
+variable(variable(("holding",constant("a")))):-has(constant("a"),type("block")).
+contains(variable("handempty"),value(variable("handempty"),true)):-boolean(true),variable(variable("handempty")).
+contains(variable(("on",constant("b"),constant("b"))),value(variable(("on",constant("b"),constant("b"))),true)):-boolean(true),variable(variable(("on",constant("b"),constant("b")))).
+contains(variable(("on",constant("a"),constant("b"))),value(variable(("on",constant("a"),constant("b"))),true)):-boolean(true),variable(variable(("on",constant("a"),constant("b")))).
+contains(variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),true)):-boolean(true),variable(variable(("on",constant("b"),constant("a")))).
+contains(variable(("on",constant("a"),constant("a"))),value(variable(("on",constant("a"),constant("a"))),true)):-boolean(true),variable(variable(("on",constant("a"),constant("a")))).
+contains(variable(("ontable",constant("b"))),value(variable(("ontable",constant("b"))),true)):-boolean(true),variable(variable(("ontable",constant("b")))).
+contains(variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),true)):-boolean(true),variable(variable(("ontable",constant("a")))).
+contains(variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),true)):-boolean(true),variable(variable(("clear",constant("b")))).
+contains(variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),true)):-boolean(true),variable(variable(("clear",constant("a")))).
+contains(variable(("holding",constant("b"))),value(variable(("holding",constant("b"))),true)):-boolean(true),variable(variable(("holding",constant("b")))).
+contains(variable(("holding",constant("a"))),value(variable(("holding",constant("a"))),true)):-boolean(true),variable(variable(("holding",constant("a")))).
+contains(variable("handempty"),value(variable("handempty"),false)):-boolean(false),variable(variable("handempty")).
+contains(variable(("on",constant("b"),constant("b"))),value(variable(("on",constant("b"),constant("b"))),false)):-boolean(false),variable(variable(("on",constant("b"),constant("b")))).
+contains(variable(("on",constant("a"),constant("b"))),value(variable(("on",constant("a"),constant("b"))),false)):-boolean(false),variable(variable(("on",constant("a"),constant("b")))).
+contains(variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),false)):-boolean(false),variable(variable(("on",constant("b"),constant("a")))).
+contains(variable(("on",constant("a"),constant("a"))),value(variable(("on",constant("a"),constant("a"))),false)):-boolean(false),variable(variable(("on",constant("a"),constant("a")))).
+contains(variable(("ontable",constant("b"))),value(variable(("ontable",constant("b"))),false)):-boolean(false),variable(variable(("ontable",constant("b")))).
+contains(variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),false)):-boolean(false),variable(variable(("ontable",constant("a")))).
+contains(variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),false)):-boolean(false),variable(variable(("clear",constant("b")))).
+contains(variable(("clear",constant("a"))),value(variable(("clear",constant("a"))),false)):-boolean(false),variable(variable(("clear",constant("a")))).
+contains(variable(("holding",constant("b"))),value(variable(("holding",constant("b"))),false)):-boolean(false),variable(variable(("holding",constant("b")))).
+contains(variable(("holding",constant("a"))),value(variable(("holding",constant("a"))),false)):-boolean(false),variable(variable(("holding",constant("a")))).
+initialState(variable(("on",constant("b"),constant("b"))),value(variable(("on",constant("b"),constant("b"))),false)):-variable(variable(("on",constant("b"),constant("b")))).
+initialState(variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),false)):-variable(variable(("on",constant("b"),constant("a")))).
+initialState(variable(("on",constant("a"),constant("a"))),value(variable(("on",constant("a"),constant("a"))),false)):-variable(variable(("on",constant("a"),constant("a")))).
+initialState(variable(("ontable",constant("a"))),value(variable(("ontable",constant("a"))),false)):-variable(variable(("ontable",constant("a")))).
+initialState(variable(("clear",constant("b"))),value(variable(("clear",constant("b"))),false)):-variable(variable(("clear",constant("b")))).
+initialState(variable(("holding",constant("b"))),value(variable(("holding",constant("b"))),false)):-variable(variable(("holding",constant("b")))).
+initialState(variable(("holding",constant("a"))),value(variable(("holding",constant("a"))),false)):-variable(variable(("holding",constant("a")))).
+#delayed(1) <=> 1<=#count{0,occurs(("putdown",constant("b")),1):occurs(("putdown",constant("b")),1);0,occurs(("putdown",constant("a")),1):occurs(("putdown",constant("a")),1);0,occurs(("stack",constant("b"),constant("b")),1):occurs(("stack",constant("b"),constant("b")),1);0,occurs(("stack",constant("a"),constant("b")),1):occurs(("stack",constant("a"),constant("b")),1);0,occurs(("stack",constant("b"),constant("a")),1):occurs(("stack",constant("b"),constant("a")),1);0,occurs(("stack",constant("a"),constant("a")),1):occurs(("stack",constant("a"),constant("a")),1);0,occurs(("unstack",constant("b"),constant("b")),1):occurs(("unstack",constant("b"),constant("b")),1);0,occurs(("unstack",constant("a"),constant("b")),1):occurs(("unstack",constant("a"),constant("b")),1);0,occurs(("unstack",constant("b"),constant("a")),1):occurs(("unstack",constant("b"),constant("a")),1);0,occurs(("unstack",constant("a"),constant("a")),1):occurs(("unstack",constant("a"),constant("a")),1);0,occurs(("pickup",constant("b")),1):occurs(("pickup",constant("b")),1);0,occurs(("pickup",constant("a")),1):occurs(("pickup",constant("a")),1)}<=1
+#delayed(2) <=> 1<=#count{0,occurs(("putdown",constant("b")),2):occurs(("putdown",constant("b")),2);0,occurs(("putdown",constant("a")),2):occurs(("putdown",constant("a")),2);0,occurs(("stack",constant("b"),constant("b")),2):occurs(("stack",constant("b"),constant("b")),2);0,occurs(("stack",constant("a"),constant("b")),2):occurs(("stack",constant("a"),constant("b")),2);0,occurs(("stack",constant("b"),constant("a")),2):occurs(("stack",constant("b"),constant("a")),2);0,occurs(("stack",constant("a"),constant("a")),2):occurs(("stack",constant("a"),constant("a")),2);0,occurs(("unstack",constant("b"),constant("b")),2):occurs(("unstack",constant("b"),constant("b")),2);0,occurs(("unstack",constant("a"),constant("b")),2):occurs(("unstack",constant("a"),constant("b")),2);0,occurs(("unstack",constant("b"),constant("a")),2):occurs(("unstack",constant("b"),constant("a")),2);0,occurs(("unstack",constant("a"),constant("a")),2):occurs(("unstack",constant("a"),constant("a")),2);0,occurs(("pickup",constant("b")),2):occurs(("pickup",constant("b")),2);0,occurs(("pickup",constant("a")),2):occurs(("pickup",constant("a")),2)}<=1
+#delayed(3) <=> 1<=#count{0,occurs(("putdown",constant("b")),3):occurs(("putdown",constant("b")),3);0,occurs(("putdown",constant("a")),3):occurs(("putdown",constant("a")),3);0,occurs(("stack",constant("b"),constant("b")),3):occurs(("stack",constant("b"),constant("b")),3);0,occurs(("stack",constant("a"),constant("b")),3):occurs(("stack",constant("a"),constant("b")),3);0,occurs(("stack",constant("b"),constant("a")),3):occurs(("stack",constant("b"),constant("a")),3);0,occurs(("stack",constant("a"),constant("a")),3):occurs(("stack",constant("a"),constant("a")),3);0,occurs(("unstack",constant("b"),constant("b")),3):occurs(("unstack",constant("b"),constant("b")),3);0,occurs(("unstack",constant("a"),constant("b")),3):occurs(("unstack",constant("a"),constant("b")),3);0,occurs(("unstack",constant("b"),constant("a")),3):occurs(("unstack",constant("b"),constant("a")),3);0,occurs(("unstack",constant("a"),constant("a")),3):occurs(("unstack",constant("a"),constant("a")),3);0,occurs(("pickup",constant("b")),3):occurs(("pickup",constant("b")),3);0,occurs(("pickup",constant("a")),3):occurs(("pickup",constant("a")),3)}<=1
+#delayed(4) <=> 2<=#count{0,h(variable(("clear",constant("b"))),2):h(variable(("clear",constant("b"))),2);0,d(variable(("clear",constant("b"))),("putdown",constant("b")),2):d(variable(("clear",constant("b"))),("putdown",constant("b")),2)}
+#delayed(5) <=> 2<=#count{0,h(variable(("clear",constant("b"))),3):h(variable(("clear",constant("b"))),3);0,d(variable(("clear",constant("b"))),("putdown",constant("b")),3):d(variable(("clear",constant("b"))),("putdown",constant("b")),3)}
+#delayed(6) <=> 2<=#count{0,h(variable(("clear",constant("b"))),4):h(variable(("clear",constant("b"))),4);0,d(variable(("clear",constant("b"))),("putdown",constant("b")),4):d(variable(("clear",constant("b"))),("putdown",constant("b")),4)}
+#delayed(7) <=> 2<=#count{0,h(variable(("clear",constant("a"))),2):h(variable(("clear",constant("a"))),2);0,d(variable(("clear",constant("a"))),("putdown",constant("a")),2):d(variable(("clear",constant("a"))),("putdown",constant("a")),2)}
+#delayed(8) <=> 2<=#count{0,h(variable(("clear",constant("a"))),3):h(variable(("clear",constant("a"))),3);0,d(variable(("clear",constant("a"))),("putdown",constant("a")),3):d(variable(("clear",constant("a"))),("putdown",constant("a")),3)}
+#delayed(9) <=> 2<=#count{0,h(variable(("clear",constant("a"))),4):h(variable(("clear",constant("a"))),4);0,d(variable(("clear",constant("a"))),("putdown",constant("a")),4):d(variable(("clear",constant("a"))),("putdown",constant("a")),4)}
+#delayed(10) <=> 2<=#count{0,h(variable(("ontable",constant("b"))),2):h(variable(("ontable",constant("b"))),2);0,d(variable(("ontable",constant("b"))),("putdown",constant("b")),2):d(variable(("ontable",constant("b"))),("putdown",constant("b")),2)}
+#delayed(11) <=> 2<=#count{0,h(variable(("ontable",constant("b"))),3):h(variable(("ontable",constant("b"))),3);0,d(variable(("ontable",constant("b"))),("putdown",constant("b")),3):d(variable(("ontable",constant("b"))),("putdown",constant("b")),3)}
+#delayed(12) <=> 2<=#count{0,h(variable(("ontable",constant("b"))),4):h(variable(("ontable",constant("b"))),4);0,d(variable(("ontable",constant("b"))),("putdown",constant("b")),4):d(variable(("ontable",constant("b"))),("putdown",constant("b")),4)}
+#delayed(13) <=> 2<=#count{0,h(variable(("ontable",constant("a"))),2):h(variable(("ontable",constant("a"))),2);0,d(variable(("ontable",constant("a"))),("putdown",constant("a")),2):d(variable(("ontable",constant("a"))),("putdown",constant("a")),2)}
+#delayed(14) <=> 2<=#count{0,h(variable(("ontable",constant("a"))),3):h(variable(("ontable",constant("a"))),3);0,d(variable(("ontable",constant("a"))),("putdown",constant("a")),3):d(variable(("ontable",constant("a"))),("putdown",constant("a")),3)}
+#delayed(15) <=> 2<=#count{0,h(variable(("ontable",constant("a"))),4):h(variable(("ontable",constant("a"))),4);0,d(variable(("ontable",constant("a"))),("putdown",constant("a")),4):d(variable(("ontable",constant("a"))),("putdown",constant("a")),4)}
+#delayed(16) <=> 2<=#count{0,h(variable(("on",constant("b"),constant("b"))),2):h(variable(("on",constant("b"),constant("b"))),2);0,d(variable(("on",constant("b"),constant("b"))),("stack",constant("b"),constant("b")),2):d(variable(("on",constant("b"),constant("b"))),("stack",constant("b"),constant("b")),2)}
+#delayed(17) <=> 2<=#count{0,h(variable(("on",constant("b"),constant("b"))),3):h(variable(("on",constant("b"),constant("b"))),3);0,d(variable(("on",constant("b"),constant("b"))),("stack",constant("b"),constant("b")),3):d(variable(("on",constant("b"),constant("b"))),("stack",constant("b"),constant("b")),3)}
+#delayed(18) <=> 2<=#count{0,h(variable(("on",constant("b"),constant("b"))),4):h(variable(("on",constant("b"),constant("b"))),4);0,d(variable(("on",constant("b"),constant("b"))),("stack",constant("b"),constant("b")),4):d(variable(("on",constant("b"),constant("b"))),("stack",constant("b"),constant("b")),4)}
+#delayed(19) <=> 2<=#count{0,h(variable(("on",constant("a"),constant("b"))),2):h(variable(("on",constant("a"),constant("b"))),2);0,d(variable(("on",constant("a"),constant("b"))),("stack",constant("a"),constant("b")),2):d(variable(("on",constant("a"),constant("b"))),("stack",constant("a"),constant("b")),2)}
+#delayed(20) <=> 2<=#count{0,h(variable(("on",constant("a"),constant("b"))),3):h(variable(("on",constant("a"),constant("b"))),3);0,d(variable(("on",constant("a"),constant("b"))),("stack",constant("a"),constant("b")),3):d(variable(("on",constant("a"),constant("b"))),("stack",constant("a"),constant("b")),3)}
+#delayed(21) <=> 2<=#count{0,h(variable(("on",constant("a"),constant("b"))),4):h(variable(("on",constant("a"),constant("b"))),4);0,d(variable(("on",constant("a"),constant("b"))),("stack",constant("a"),constant("b")),4):d(variable(("on",constant("a"),constant("b"))),("stack",constant("a"),constant("b")),4)}
+#delayed(22) <=> 2<=#count{0,h(variable(("on",constant("b"),constant("a"))),2):h(variable(("on",constant("b"),constant("a"))),2);0,d(variable(("on",constant("b"),constant("a"))),("stack",constant("b"),constant("a")),2):d(variable(("on",constant("b"),constant("a"))),("stack",constant("b"),constant("a")),2)}
+#delayed(23) <=> 2<=#count{0,h(variable(("on",constant("b"),constant("a"))),3):h(variable(("on",constant("b"),constant("a"))),3);0,d(variable(("on",constant("b"),constant("a"))),("stack",constant("b"),constant("a")),3):d(variable(("on",constant("b"),constant("a"))),("stack",constant("b"),constant("a")),3)}
+#delayed(24) <=> 2<=#count{0,h(variable(("on",constant("b"),constant("a"))),4):h(variable(("on",constant("b"),constant("a"))),4);0,d(variable(("on",constant("b"),constant("a"))),("stack",constant("b"),constant("a")),4):d(variable(("on",constant("b"),constant("a"))),("stack",constant("b"),constant("a")),4)}
+#delayed(25) <=> 2<=#count{0,h(variable(("on",constant("a"),constant("a"))),2):h(variable(("on",constant("a"),constant("a"))),2);0,d(variable(("on",constant("a"),constant("a"))),("stack",constant("a"),constant("a")),2):d(variable(("on",constant("a"),constant("a"))),("stack",constant("a"),constant("a")),2)}
+#delayed(26) <=> 2<=#count{0,h(variable(("on",constant("a"),constant("a"))),3):h(variable(("on",constant("a"),constant("a"))),3);0,d(variable(("on",constant("a"),constant("a"))),("stack",constant("a"),constant("a")),3):d(variable(("on",constant("a"),constant("a"))),("stack",constant("a"),constant("a")),3)}
+#delayed(27) <=> 2<=#count{0,h(variable(("on",constant("a"),constant("a"))),4):h(variable(("on",constant("a"),constant("a"))),4);0,d(variable(("on",constant("a"),constant("a"))),("stack",constant("a"),constant("a")),4):d(variable(("on",constant("a"),constant("a"))),("stack",constant("a"),constant("a")),4)}
+#delayed(28) <=> 2<=#count{0,h(variable("handempty"),2):h(variable("handempty"),2);0,d(variable("handempty"),("stack",constant("b"),constant("b")),2):d(variable("handempty"),("stack",constant("b"),constant("b")),2)}
+#delayed(29) <=> 2<=#count{0,h(variable("handempty"),3):h(variable("handempty"),3);0,d(variable("handempty"),("stack",constant("b"),constant("b")),3):d(variable("handempty"),("stack",constant("b"),constant("b")),3)}
+#delayed(30) <=> 2<=#count{0,h(variable("handempty"),4):h(variable("handempty"),4);0,d(variable("handempty"),("stack",constant("b"),constant("b")),4):d(variable("handempty"),("stack",constant("b"),constant("b")),4)}
+#delayed(31) <=> 2<=#count{0,h(variable("handempty"),2):h(variable("handempty"),2);0,d(variable("handempty"),("stack",constant("a"),constant("b")),2):d(variable("handempty"),("stack",constant("a"),constant("b")),2)}
+#delayed(32) <=> 2<=#count{0,h(variable("handempty"),3):h(variable("handempty"),3);0,d(variable("handempty"),("stack",constant("a"),constant("b")),3):d(variable("handempty"),("stack",constant("a"),constant("b")),3)}
+#delayed(33) <=> 2<=#count{0,h(variable("handempty"),4):h(variable("handempty"),4);0,d(variable("handempty"),("stack",constant("a"),constant("b")),4):d(variable("handempty"),("stack",constant("a"),constant("b")),4)}
+#delayed(34) <=> 2<=#count{0,h(variable("handempty"),2):h(variable("handempty"),2);0,d(variable("handempty"),("stack",constant("b"),constant("a")),2):d(variable("handempty"),("stack",constant("b"),constant("a")),2)}
+#delayed(35) <=> 2<=#count{0,h(variable("handempty"),3):h(variable("handempty"),3);0,d(variable("handempty"),("stack",constant("b"),constant("a")),3):d(variable("handempty"),("stack",constant("b"),constant("a")),3)}
+#delayed(36) <=> 2<=#count{0,h(variable("handempty"),4):h(variable("handempty"),4);0,d(variable("handempty"),("stack",constant("b"),constant("a")),4):d(variable("handempty"),("stack",constant("b"),constant("a")),4)}
+#delayed(37) <=> 2<=#count{0,h(variable("handempty"),2):h(variable("handempty"),2);0,d(variable("handempty"),("stack",constant("a"),constant("a")),2):d(variable("handempty"),("stack",constant("a"),constant("a")),2)}
+#delayed(38) <=> 2<=#count{0,h(variable("handempty"),3):h(variable("handempty"),3);0,d(variable("handempty"),("stack",constant("a"),constant("a")),3):d(variable("handempty"),("stack",constant("a"),constant("a")),3)}
+#delayed(39) <=> 2<=#count{0,h(variable("handempty"),4):h(variable("handempty"),4);0,d(variable("handempty"),("stack",constant("a"),constant("a")),4):d(variable("handempty"),("stack",constant("a"),constant("a")),4)}
