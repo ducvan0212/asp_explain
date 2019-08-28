@@ -1,5 +1,6 @@
 from IPython import embed
 import re
+import sys
 
 hfile = open("mod_human_ground.lp","r") 
 pifile = open("log.txt","r")
@@ -18,7 +19,7 @@ for pr in pi:
   if select == 1:
     pick.append(rule) 
 
-with open('diff.txt',"w") as log:
+with open(sys.argv[1] + '/diff.txt',"w") as log:
   for p in pick:
     log.write("{}\n".format(p))
   

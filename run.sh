@@ -65,6 +65,6 @@ python replace_delayed.py ${HUMAN_GROUND} ${MOD_HUMAN_GROUND}
 
 print "==== Compute Π\Πh"
 # compute Π\Πh 
-python compute_n_nh.py
+python compute_n_nh.py ${PREFIX}
 
 
