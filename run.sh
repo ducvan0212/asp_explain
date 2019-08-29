@@ -64,7 +64,11 @@ clingo ${HUMAN} --text --keep-facts --const horizon=${call}> ${HUMAN_GROUND}
 python replace_delayed.py ${HUMAN_GROUND} ${MOD_HUMAN_GROUND}
 
 print "==== Compute Π\Πh"
-# compute Π\Πh 
+# compute Π'h = Π\Πh 
 python compute_n_nh.py ${PREFIX}
 
+print "==== Compute rules that potentially lead to wrong inference with robots"
+clingo compute_removed_pi_h.lp
+
+mv removed_pi_h.log "${PREFIX}/removed_pi_h.log"
 
