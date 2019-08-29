@@ -1,0 +1,12 @@
+:- goal(variable(("on",constant("a"),constant("g"))),value(variable(("on",constant("a"),constant("g"))),true)).
+:- goal(variable(("on",constant("a"),constant("g"))),value(variable(("on",constant("a"),constant("g"))),true)).
+:- goal(variable(("on",constant("g"),constant("d"))),value(variable(("on",constant("g"),constant("d"))),true)).
+:- goal(variable(("on",constant("g"),constant("d"))),value(variable(("on",constant("g"),constant("d"))),true)).
+:- goal(variable(("on",constant("d"),constant("b"))),value(variable(("on",constant("d"),constant("b"))),true)).
+:- goal(variable(("on",constant("d"),constant("b"))),value(variable(("on",constant("d"),constant("b"))),true)).
+:- goal(variable(("on",constant("b"),constant("c"))),value(variable(("on",constant("b"),constant("c"))),true)).
+:- goal(variable(("on",constant("b"),constant("c"))),value(variable(("on",constant("b"),constant("c"))),true)).
+:- goal(variable(("on",constant("c"),constant("f"))),value(variable(("on",constant("c"),constant("f"))),true)).
+:- goal(variable(("on",constant("c"),constant("f"))),value(variable(("on",constant("c"),constant("f"))),true)).
+:- goal(variable(("on",constant("f"),constant("e"))),value(variable(("on",constant("f"),constant("e"))),true)).
+:- goal(variable(("on",constant("f"),constant("e"))),value(variable(("on",constant("f"),constant("e"))),true)).

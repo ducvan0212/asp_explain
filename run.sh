@@ -35,8 +35,11 @@ print "==== Find answer set I and number of calls"
 # clingo ${PROG} ${QUERY} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${I}
 clingo ${PROG} ${QUERY} --outf=0 --out-atomf=%s. | python model.py ${I} ${CALL_FILE}
 
+# filter occurs only
+clingo ${I} filter.lp --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > occurs.lp
+
 call=$(head -n 1 $CALL_FILE)
-clingo ${HORIZON_PROG} --text --keep-facts --const horizon=${call}> ${GROUND}
+clingo ${HORIZON_PROG} occurs.lp --text --keep-facts --const horizon=${call}> ${GROUND}
 
 python replace_delayed.py ${GROUND} ${MOD_GROUND}
 
@@ -64,7 +67,7 @@ clingo ${HUMAN} --text --keep-facts --const horizon=${call}> ${HUMAN_GROUND}
 python replace_delayed.py ${HUMAN_GROUND} ${MOD_HUMAN_GROUND}
 
 print "==== Compute Π\Πh"
-# compute Π'h = Π\Πh 
+# compute Π'h = Π\Πh
 python compute_n_nh.py ${PREFIX}
 
 print "==== Compute rules that potentially lead to wrong inference with robots"
