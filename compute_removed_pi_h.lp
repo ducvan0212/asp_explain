@@ -1,7 +1,6 @@
 #script(python)
 
 from __future__ import print_function
-from IPython import embed
 import clingo
 
 def find_neg(bodyx):
@@ -15,7 +14,7 @@ def dumb(pick):
   with open("removed_pi_h.log","w") as file:
     for rule in pick:
       headx = str(rule[1][1])
-      bodyx = rule[0][1]
+      bodyx = rule[2][1]
       head = str(headx)
       body = map(lambda x: str(x), bodyx)
       if not bodyx:

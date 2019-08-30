@@ -1,4 +1,3 @@
-from IPython import embed
 import re
 
 wf = open("ok_pi_a_i.lp","w") 

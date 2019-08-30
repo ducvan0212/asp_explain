@@ -1,8 +1,8 @@
 #script(python)
 
 from __future__ import print_function
-from IPython import embed
 import clingo
+import pdb;
 
 def find_neg(bodyx):
   neg = []
@@ -15,7 +15,7 @@ def dumb(pick):
   with open("pi_a_i.lp","w") as file:
     for rule in pick:
       headx = str(rule[1][1])
-      bodyx = rule[0][1]
+      bodyx = rule[2][1]
       head = str(headx)
       body = map(lambda x: str(x), bodyx)
       if not bodyx:
@@ -23,6 +23,7 @@ def dumb(pick):
       elif headx == "#false":
         file.write(":- {}.\n".format(",".join(body)))
       else:
+        # breakpoint()
         file.write("{} :- {}.\n".format(head, ",".join(body)))
   
 ifile = open("i.lp","r")

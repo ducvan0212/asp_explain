@@ -1,4 +1,3 @@
-from IPython import embed
 import re
 
 i = open("rule_set.lp","r") 
