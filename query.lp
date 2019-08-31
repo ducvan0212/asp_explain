@@ -1,1 +1,0 @@
-:- not three_by_a(3).

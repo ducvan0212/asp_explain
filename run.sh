@@ -15,7 +15,7 @@ print () {
 PREFIX=$1
 PROG="${PREFIX}/robot.lp plan.lp"
 HORIZON_PROG="${PREFIX}/robot.lp plan_horizon.lp"
-QUERY="${PREFIX}/goal.lp"
+QUERY="${PREFIX}/query.lp"
 HUMAN="${PREFIX}/human.lp plan_horizon.lp"
 
 I="i.lp"
@@ -24,7 +24,7 @@ GROUND="ground.lp"
 MOD_GROUND="mod_ground.lp"
 CALL_FILE="call.txt"
 COMPUTE_PI_A_I="compute_pi_a_i.lp"
-PI_A_I="pi_a_i.lp"
+# PI_A_I="pi_a_i.lp"
 OK_PI_A_I="ok_pi_a_i.lp"
 
 HUMAN_GROUND="human_ground.lp"
@@ -33,7 +33,7 @@ MOD_HUMAN_GROUND="mod_human_ground.lp"
 print "==== Find answer set I and number of calls"
 # 3. find an answer set I and number of calls
 # clingo ${PROG} ${QUERY} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${I}
-clingo ${PROG} ${QUERY} --outf=0 --out-atomf=%s. | python model.py ${I} ${CALL_FILE}
+clingo ${PROG} --outf=0 --out-atomf=%s. | python model.py ${I} ${CALL_FILE}
 
 # filter occurs only
 clingo ${I} filter.lp --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > occurs.lp
@@ -45,10 +45,11 @@ python replace_delayed.py ${GROUND} ${MOD_GROUND}
 
 print "==== Compute pi_a_i (Πa wrt I)"
 # 4. Compute Π(πa,I)
+python add_call2query.py ${QUERY} ${call}
 clingo ${COMPUTE_PI_A_I}
 
 # add ok
-python modify.py
+#python modify.py
 
 print "==== Compute answer set J of pi_a_i"
 # 5. compute answer set J of Π(πa , I )
@@ -70,8 +71,10 @@ print "==== Compute Π\Πh"
 # compute Π'h = Π\Πh
 python compute_n_nh.py ${PREFIX}
 
-print "==== Compute rules that potentially lead to wrong inference with robots"
-clingo compute_removed_pi_h.lp
+# clingo output_for_explanation.lp $I --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - simpler_explain.lp "${PREFIX}/diff.txt" --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > "${PREFIX}/exp.lp"
 
-mv removed_pi_h.log "${PREFIX}/removed_pi_h.log"
-
+# print "==== Compute rules that potentially lead to wrong inference with robots"
+# clingo compute_removed_pi_h.lp
+#
+# mv removed_pi_h.log "${PREFIX}/removed_pi_h.log"
+#

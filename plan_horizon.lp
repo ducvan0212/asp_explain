@@ -4,7 +4,7 @@ step(1..horizon).
 
 h(X, 1) :- initialState(X, value(X, true)).
 
-2{h(X, T+1);d(X, A, T+1)} :- action(action(A)), occurs(A, T), step(T), 
+h(X, T+1) :- action(action(A)), occurs(A, T), step(T), 
                    postcondition(action(A), effect(unconditional), X, value(X, true)).
                    
 h(X, T+1) :- action(action(A)), occurs(A, T), 

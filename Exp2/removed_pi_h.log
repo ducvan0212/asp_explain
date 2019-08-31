@@ -1,0 +1,2 @@
+:- goal(variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),true)).
+:- goal(variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),true)).

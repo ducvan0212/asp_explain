@@ -1,0 +1,6 @@
+:- goal(variable(("on",constant("d"),constant("c"))),value(variable(("on",constant("d"),constant("c"))),true)).
+:- goal(variable(("on",constant("d"),constant("c"))),value(variable(("on",constant("d"),constant("c"))),true)).
+:- goal(variable(("on",constant("c"),constant("b"))),value(variable(("on",constant("c"),constant("b"))),true)).
+:- goal(variable(("on",constant("c"),constant("b"))),value(variable(("on",constant("c"),constant("b"))),true)).
+:- goal(variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),true)).
+:- goal(variable(("on",constant("b"),constant("a"))),value(variable(("on",constant("b"),constant("a"))),true)).

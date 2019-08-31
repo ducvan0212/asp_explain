@@ -6,7 +6,7 @@ h(X, 1) :- initialState(X, value(X, true)).
 
 #program step(t).
 
-2{h(X, t);d(X, A, t)} :- action(action(A)), occurs(A, t-1), 
+h(X, t) :- action(action(A)), occurs(A, t-1), 
                    postcondition(action(A), effect(unconditional), X, value(X, true)).
                    
 h(X, t) :- action(action(A)), occurs(A, t-1), 
