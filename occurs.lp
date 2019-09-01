@@ -1,1 +1,1 @@
-occurs(("unstack",constant("a"),constant("b")),1). occurs(("putdown",constant("a")),2).
+occurs(("pickup",constant("b")),1). occurs(("stack",constant("b"),constant("a")),2). occurs(("pickup",constant("c")),3). occurs(("stack",constant("c"),constant("b")),4). occurs(("pickup",constant("d")),5). occurs(("stack",constant("d"),constant("c")),6).

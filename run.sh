@@ -36,14 +36,16 @@ print "==== Find answer set I and number of calls"
 # clingo ${PROG} ${QUERY} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${I}
 clingo ${PROG} --outf=0 --out-atomf=%s. | python model.py ${I} ${CALL_FILE}
 
-## filter occurs only
-#clingo ${I} filter.lp --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > occurs.lp
-#
-#call=$(head -n 1 $CALL_FILE)
-#clingo ${HORIZON_PROG} occurs.lp --text --keep-facts --const horizon=${call}> ${GROUND}
+# filter occurs only
+clingo ${I} filter.lp --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > occurs.lp
+
+python modify_occurs.py
 
 call=$(head -n 1 $CALL_FILE)
-clingo ${HORIZON_PROG} --text --keep-facts --const horizon=${call}> ${GROUND}
+clingo ${HORIZON_PROG} mod_occurs.lp --text --keep-facts --const horizon=${call}> ${GROUND}
+
+# call=$(head -n 1 $CALL_FILE)
+# clingo ${HORIZON_PROG} --text --keep-facts --const horizon=${call}> ${GROUND}
 
 python replace_delayed.py ${GROUND} ${MOD_GROUND}
 
