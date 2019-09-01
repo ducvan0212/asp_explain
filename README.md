@@ -1,6 +1,6 @@
 ## How to run
 
-1. Set up experiment folder in root of this repo. For each experiment, the program need `human.lp`, `robot.lp` and `goal.lp`. `human.lp` and `robot.lp` are given. Create `goal.lp` by copying goal part from `robot.lp` and prefix all rules with `:- not `
+1. Set up experiment folder in root of this repo. For each experiment, the program need `human.lp`, `robot.lp`, `goal.lp` and `query.lp`. `human.lp` and `robot.lp` are given. Create `goal.lp` by copying goal part from `robot.lp` and prefix all rules with `:- not `. Create `query.lp` by taking `h(variable..., <step>)`. `variable` part is from goal, `<step>` is cost from plan.dat
 
 2. Run 
 

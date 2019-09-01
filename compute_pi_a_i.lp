@@ -5,6 +5,7 @@ from IPython import embed
 import clingo
 import os
 import re
+import time
 
 class Graph: 
   def __init__(self):
@@ -98,6 +99,8 @@ clingo.parse_program(model, lambda stm: atoms.append( str(stm.items()[1][1]) ))
 pick = []
 head_to_rule = {}
 g = Graph()
+
+start_time = time.time()
   
 #count = 0
 for rule in parsed[1:]:
@@ -107,9 +110,19 @@ for rule in parsed[1:]:
   headx = rule[1][1]
   bodyx = rule[0][1]
   negx  = find_neg(bodyx)
+  posx = find_pos(bodyx)
   
   if str(headx) == "#false":
     pick.append(rule)
+    for n in negx:
+      #if n in head_to_rule.keys():
+      #  head_to_rule[n].append( len(pick) - 1 )
+      #else:
+      #  head_to_rule[n] = [len(pick) - 1]
+      g.addEdge("TRUE",n)
+    for p in posx:
+      g.addEdge("TRUE",p)
+      
     continue
   for a in atoms:
     if a in str(headx):
@@ -128,7 +141,7 @@ for rule in parsed[1:]:
   if accept == 1:
     pick.append(rule)
     match = []
-    if "<=" in str(headx):
+    if "<=" in str(headx) or str(headx)[:6] == "#count":
       match = re.findall(r"(\w[\w\(\)\"\,]+)",str(headx))
     else :
       match = [str(headx)]
@@ -139,7 +152,6 @@ for rule in parsed[1:]:
       else:
         head_to_rule[m] = [len(pick) - 1]
     
-    posx = find_pos(bodyx)
     if posx:
       for p in posx:
         for m in match:
@@ -148,14 +160,17 @@ for rule in parsed[1:]:
       for m in match:
         g.addEdge(m,None)
 
-heads = map(lambda q: g.dependency_for(q.replace(".","").replace(" ","")), query[:-1]) 
-#g.dependency_for('h(variable(("on",constant("d"),constant("c"))),7)')
+query_set = query[:-1]
+query_set.append("TRUE")
+heads = map(lambda q: g.dependency_for(q.replace(".","").replace(" ","")), query_set) 
 heads.append( map(lambda q: q.replace(".","").replace(" ",""), query[:-1]) )
 rules = []
 for hs in heads:
   for h in hs:
     if h in head_to_rule.keys():
       rules.extend(head_to_rule[h])
+
+print("========== Calculate Pi_a_i time: {} seconds".format(time.time() - start_time))
 
 dumb(pick,set(rules))
 f.close()

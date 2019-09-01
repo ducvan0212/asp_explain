@@ -75,7 +75,7 @@ python replace_delayed.py ${HUMAN_GROUND} ${MOD_HUMAN_GROUND}
 
 print "==== Compute Π\Πh"
 # compute Π'h = Π\Πh
-python compute_n_nh.py ${PREFIX}
+time (python compute_n_nh.py ${PREFIX})
 
 # clingo output_for_explanation.lp $I --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - simpler_explain.lp "${PREFIX}/diff.txt" --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > "${PREFIX}/exp.lp"
 
