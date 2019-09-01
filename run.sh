@@ -17,6 +17,7 @@ PROG="${PREFIX}/robot.lp plan.lp"
 HORIZON_PROG="${PREFIX}/robot.lp plan_horizon.lp"
 QUERY="${PREFIX}/query.lp"
 HUMAN="${PREFIX}/human.lp plan_horizon.lp"
+GOAL="${PREFIX}/goal.lp"
 
 I="i.lp"
 J="j.lp"
@@ -35,11 +36,14 @@ print "==== Find answer set I and number of calls"
 # clingo ${PROG} ${QUERY} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${I}
 clingo ${PROG} --outf=0 --out-atomf=%s. | python model.py ${I} ${CALL_FILE}
 
-# filter occurs only
-clingo ${I} filter.lp --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > occurs.lp
+## filter occurs only
+#clingo ${I} filter.lp --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > occurs.lp
+#
+#call=$(head -n 1 $CALL_FILE)
+#clingo ${HORIZON_PROG} occurs.lp --text --keep-facts --const horizon=${call}> ${GROUND}
 
 call=$(head -n 1 $CALL_FILE)
-clingo ${HORIZON_PROG} occurs.lp --text --keep-facts --const horizon=${call}> ${GROUND}
+clingo ${HORIZON_PROG} --text --keep-facts --const horizon=${call}> ${GROUND}
 
 python replace_delayed.py ${GROUND} ${MOD_GROUND}
 
@@ -53,7 +57,7 @@ clingo ${COMPUTE_PI_A_I}
 
 print "==== Compute answer set J of pi_a_i"
 # 5. compute answer set J of Π(πa , I )
-clingo ${OK_PI_A_I} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${J}
+clingo ${OK_PI_A_I} ${GOAL} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${J}
 
 print "==== Compute Π"
 # 6. extract ok()

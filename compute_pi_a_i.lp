@@ -4,6 +4,7 @@ from __future__ import print_function
 from IPython import embed
 import clingo
 import os
+import re
 
 class Graph: 
   def __init__(self):
@@ -11,18 +12,19 @@ class Graph:
     self.visited = {}
     
   def addEdge(self,u,v):
-    if u in self.graph.keys():
-      self.graph[u].append(v)
-    else:
-      if v is None:
-        self.graph[u] = []
-        self.visited[u] = 0
-      else:
-        self.graph[u] = [v]
-        self.visited[u] = 0
+    if u in self.graph.keys(): 
+      if v not in self.graph[u]:
+        self.graph[u].append(v)
         self.visited[v] = 0
+    else:
+      self.graph[u] = []
+      self.visited[u] = 0
+      if v is not None:
+        self.graph[u].append(v)        
   
   def dependency_for(self,q):
+    if q not in self.graph.keys():
+      return []
     if self.visited[q] == 1:
       return []
       
@@ -63,12 +65,13 @@ def dumb(pick,rules):
       else:
         count += 1
         ok = "ok({})".format(count)
-        #if i in rules:
-        #  file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
-        #  file.write("{}.\n".format(ok))
-        #else:
-        file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
-        file.write("0 {" + ok + "} 1.\n")
+        if i in rules:
+          file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
+          file.write("{}.\n".format(ok))
+        else:
+          file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
+          file.write("0 {" + ok + "} 1.\n")
+        
     
     file.write("#minimize { 1@X:ok(X) }.")
   
@@ -84,7 +87,7 @@ model = ifile.read()
 atoms = []
 
 clingo.parse_program(content, lambda stm: parsed.append(stm.items()))
-clingo.parse_program(model, lambda stm: atoms.append(stm.items()))
+clingo.parse_program(model, lambda stm: atoms.append( str(stm.items()[1][1]) ))
 
 #[('body', []),
 # ('head', boolean(true)),
@@ -104,43 +107,55 @@ for rule in parsed[1:]:
   headx = rule[1][1]
   bodyx = rule[0][1]
   negx  = find_neg(bodyx)
+  
   if str(headx) == "#false":
     pick.append(rule)
     continue
   for a in atoms:
-    atom = a[1][1]
-    if str(atom) in str(headx):
+    if a in str(headx):
       accept = 1
       break
+    
   if accept == 0:
     continue
   if negx:
     all_neg = ",".join(negx)
     for a in atoms:
-      atom = a[1][1]
-      if str(atom) in all_neg:
+      if a in all_neg:
         accept = 0
         break
-      
+    
   if accept == 1:
     pick.append(rule)
-    if str(headx) in head_to_rule.keys():
-      head_to_rule[str(headx)].append( len(pick) - 1 )
-    else:
-      head_to_rule[str(headx)] = [len(pick) - 1]
+    match = []
+    if "<=" in str(headx):
+      match = re.findall(r"(\w[\w\(\)\"\,]+)",str(headx))
+    else :
+      match = [str(headx)]
+      
+    for m in match:
+      if m in head_to_rule.keys():
+        head_to_rule[m].append( len(pick) - 1 )
+      else:
+        head_to_rule[m] = [len(pick) - 1]
+    
     posx = find_pos(bodyx)
     if posx:
       for p in posx:
-        g.addEdge(str(headx), p)
+        for m in match:
+          g.addEdge(m, p)
     else:
-      g.addEdge(str(headx),None)
+      for m in match:
+        g.addEdge(m,None)
 
 heads = map(lambda q: g.dependency_for(q.replace(".","").replace(" ","")), query[:-1]) 
 #g.dependency_for('h(variable(("on",constant("d"),constant("c"))),7)')
+heads.append( map(lambda q: q.replace(".","").replace(" ",""), query[:-1]) )
 rules = []
 for hs in heads:
   for h in hs:
-    rules.extend(head_to_rule[h])
+    if h in head_to_rule.keys():
+      rules.extend(head_to_rule[h])
 
 dumb(pick,set(rules))
 f.close()

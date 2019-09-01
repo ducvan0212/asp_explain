@@ -16,6 +16,6 @@ executable(A, T):-  action(action(A)), step(T),
 
 :- action(action(A)), occurs(A, T), not executable(A, T). 
 
-% 1{occurs(A, T) : action(action(A))} 1 :- goal(X, value(X, true)), not h(X, T), step(T).
+1{occurs(A, T) : action(action(A))} 1 :- goal(X, value(X, true)), not h(X, T), step(T).
 
 :- goal(X, value(X, true)), not h(X, horizon).
