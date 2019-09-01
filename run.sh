@@ -77,7 +77,7 @@ print "==== Compute Π\Πh"
 # compute Π'h = Π\Πh
 time (python compute_n_nh.py ${PREFIX})
 
-# clingo output_for_explanation.lp $I --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - simpler_explain.lp "${PREFIX}/diff.txt" --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > "${PREFIX}/exp.lp"
+clingo output_for_explanation.lp $I --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - simpler_explain_blockworld.lp "${PREFIX}/diff.txt" --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > "${PREFIX}/exp.lp"
 
 # print "==== Compute rules that potentially lead to wrong inference with robots"
 # clingo compute_removed_pi_h.lp

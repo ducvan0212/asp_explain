@@ -1,1 +1,1 @@
-effect("pickup","holding"). effect("unstack","holding"). effect("unstack","clear"). effect("unstack",("holding",constant("a"))). effect("unstack",("clear",constant("b"))). effect("pickup",("holding",constant("b"))). effect("putdown","handempty").
+add_effect("pickup","holding"). add_effect("unstack","holding"). add_effect("unstack","clear"). add_effect("unstack",("holding",constant("a"))). add_effect("unstack",("clear",constant("b"))). add_effect("pickup",("holding",constant("b"))). add_effect("putdown","handempty").

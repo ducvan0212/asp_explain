@@ -1,1 +1,1 @@
-
+add_effect("pickup","holding"). add_effect("stack","clear"). add_effect("stack",("clear",constant("c"))). add_effect("stack",("clear",constant("b"))). add_effect("pickup",("holding",constant("d"))). add_effect("pickup",("holding",constant("b"))). add_effect("pickup",("holding",constant("c"))).
