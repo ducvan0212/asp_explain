@@ -119,6 +119,14 @@ h(variable(("at",constant("tru2"),constant("pos2"))),1) :- initialState(variable
 ok(6).
 h(variable(("at",constant("obj21"),constant("pos2"))),1) :- initialState(variable(("at",constant("obj21"),constant("pos2"))),value(variable(("at",constant("obj21"),constant("pos2"))),true)), ok(7).
 ok(7).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),1) :- initialState(variable(("in-city",constant("pos1"),constant("cit1"))),value(variable(("in-city",constant("pos1"),constant("cit1"))),true)), ok(10).
+ok(10).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),1) :- initialState(variable(("in-city",constant("apt1"),constant("cit1"))),value(variable(("in-city",constant("apt1"),constant("cit1"))),true)), ok(11).
+ok(11).
+h(variable(("in-city",constant("pos2"),constant("cit2"))),1) :- initialState(variable(("in-city",constant("pos2"),constant("cit2"))),value(variable(("in-city",constant("pos2"),constant("cit2"))),true)), ok(12).
+ok(12).
+h(variable(("in-city",constant("apt2"),constant("cit2"))),1) :- initialState(variable(("in-city",constant("apt2"),constant("cit2"))),value(variable(("in-city",constant("apt2"),constant("cit2"))),true)), ok(13).
+ok(13).
 has(constant("pos1"),type("place")) :- inherits(type("location"),type("place")),has(constant("pos1"),type("location")), ok(24).
 ok(24).
 has(constant("pos2"),type("place")) :- inherits(type("location"),type("place")),has(constant("pos2"),type("location")), ok(25).
@@ -665,6 +673,14 @@ h(variable(("in",constant("obj11"),constant("tru1"))),14) :- step(13),h(variable
 ok(716).
 h(variable(("in",constant("obj13"),constant("tru1"))),8) :- step(7),h(variable(("in",constant("obj13"),constant("tru1"))),7),occurs(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")),7),action(action(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")))), ok(717).
 ok(717).
+h(variable(("in-city",constant("apt2"),constant("cit2"))),2) :- step(1),h(variable(("in-city",constant("apt2"),constant("cit2"))),1),occurs(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")),1),action(action(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")))), ok(718).
+ok(718).
+h(variable(("in-city",constant("pos2"),constant("cit2"))),2) :- step(1),h(variable(("in-city",constant("pos2"),constant("cit2"))),1),occurs(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")),1),action(action(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")))), ok(719).
+ok(719).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),2) :- step(1),h(variable(("in-city",constant("apt1"),constant("cit1"))),1),occurs(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")),1),action(action(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")))), ok(720).
+ok(720).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),2) :- step(1),h(variable(("in-city",constant("pos1"),constant("cit1"))),1),occurs(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")),1),action(action(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")))), ok(721).
+ok(721).
 h(variable(("at",constant("obj21"),constant("pos2"))),2) :- step(1),h(variable(("at",constant("obj21"),constant("pos2"))),1),occurs(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")),1),action(action(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")))), ok(723).
 ok(723).
 h(variable(("at",constant("tru2"),constant("pos2"))),2) :- step(1),h(variable(("at",constant("tru2"),constant("pos2"))),1),occurs(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")),1),action(action(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")))), ok(724).
@@ -687,6 +703,14 @@ h(variable(("at",constant("obj13"),constant("pos1"))),3) :- step(2),h(variable((
 ok(734).
 h(variable(("at",constant("tru2"),constant("pos2"))),3) :- step(2),h(variable(("at",constant("tru2"),constant("pos2"))),2),occurs(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")),2),action(action(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")))), ok(735).
 ok(735).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),3) :- step(2),h(variable(("in-city",constant("pos1"),constant("cit1"))),2),occurs(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")),2),action(action(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")))), ok(737).
+ok(737).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),3) :- step(2),h(variable(("in-city",constant("apt1"),constant("cit1"))),2),occurs(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")),2),action(action(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")))), ok(738).
+ok(738).
+h(variable(("in-city",constant("pos2"),constant("cit2"))),3) :- step(2),h(variable(("in-city",constant("pos2"),constant("cit2"))),2),occurs(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")),2),action(action(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")))), ok(739).
+ok(739).
+h(variable(("in-city",constant("apt2"),constant("cit2"))),3) :- step(2),h(variable(("in-city",constant("apt2"),constant("cit2"))),2),occurs(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")),2),action(action(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")))), ok(740).
+ok(740).
 h(variable(("in",constant("obj13"),constant("tru1"))),9) :- step(8),h(variable(("in",constant("obj13"),constant("tru1"))),8),occurs(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2")),8),action(action(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2")))), ok(741).
 ok(741).
 h(variable(("in",constant("obj11"),constant("tru1"))),15) :- step(14),h(variable(("in",constant("obj11"),constant("tru1"))),14),occurs(("unload-truck",constant("obj13"),constant("tru1"),constant("apt1")),14),action(action(("unload-truck",constant("obj13"),constant("tru1"),constant("apt1")))), ok(742).
@@ -733,6 +757,10 @@ h(variable(("in",constant("obj11"),constant("tru1"))),16) :- step(15),h(variable
 ok(765).
 h(variable(("in",constant("obj13"),constant("tru1"))),10) :- step(9),h(variable(("in",constant("obj13"),constant("tru1"))),9),occurs(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")),9),action(action(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")))), ok(766).
 ok(766).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),4) :- step(3),h(variable(("in-city",constant("apt1"),constant("cit1"))),3),occurs(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2")),3),action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2")))), ok(769).
+ok(769).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),4) :- step(3),h(variable(("in-city",constant("pos1"),constant("cit1"))),3),occurs(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2")),3),action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2")))), ok(770).
+ok(770).
 h(variable(("at",constant("obj13"),constant("pos1"))),4) :- step(3),h(variable(("at",constant("obj13"),constant("pos1"))),3),occurs(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2")),3),action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2")))), ok(772).
 ok(772).
 h(variable(("at",constant("obj11"),constant("pos1"))),4) :- step(3),h(variable(("at",constant("obj11"),constant("pos1"))),3),occurs(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2")),3),action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2")))), ok(774).
@@ -749,6 +777,10 @@ h(variable(("at",constant("obj11"),constant("pos1"))),5) :- step(4),h(variable((
 ok(779).
 h(variable(("at",constant("obj13"),constant("pos1"))),5) :- step(4),h(variable(("at",constant("obj13"),constant("pos1"))),4),occurs(("unload-truck",constant("obj21"),constant("tru2"),constant("apt2")),4),action(action(("unload-truck",constant("obj21"),constant("tru2"),constant("apt2")))), ok(781).
 ok(781).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),5) :- step(4),h(variable(("in-city",constant("pos1"),constant("cit1"))),4),occurs(("unload-truck",constant("obj21"),constant("tru2"),constant("apt2")),4),action(action(("unload-truck",constant("obj21"),constant("tru2"),constant("apt2")))), ok(783).
+ok(783).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),5) :- step(4),h(variable(("in-city",constant("apt1"),constant("cit1"))),4),occurs(("unload-truck",constant("obj21"),constant("tru2"),constant("apt2")),4),action(action(("unload-truck",constant("obj21"),constant("tru2"),constant("apt2")))), ok(784).
+ok(784).
 h(variable(("in",constant("obj13"),constant("tru1"))),11) :- step(10),h(variable(("in",constant("obj13"),constant("tru1"))),10),occurs(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1")),10),action(action(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1")))), ok(787).
 ok(787).
 h(variable(("in",constant("obj23"),constant("tru2"))),6) :- step(5),h(variable(("in",constant("obj23"),constant("tru2"))),5),occurs(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")),5),action(action(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")))), ok(788).
@@ -775,6 +807,10 @@ h(variable(("in",constant("obj23"),constant("tru2"))),7) :- step(6),h(variable((
 ok(802).
 h(variable(("in",constant("obj13"),constant("tru1"))),12) :- step(11),h(variable(("in",constant("obj13"),constant("tru1"))),11),occurs(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")),11),action(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")))), ok(803).
 ok(803).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),6) :- step(5),h(variable(("in-city",constant("apt1"),constant("cit1"))),5),occurs(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")),5),action(action(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")))), ok(806).
+ok(806).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),6) :- step(5),h(variable(("in-city",constant("pos1"),constant("cit1"))),5),occurs(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")),5),action(action(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")))), ok(807).
+ok(807).
 h(variable(("at",constant("obj13"),constant("pos1"))),6) :- step(5),h(variable(("at",constant("obj13"),constant("pos1"))),5),occurs(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")),5),action(action(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")))), ok(809).
 ok(809).
 h(variable(("at",constant("obj11"),constant("pos1"))),6) :- step(5),h(variable(("at",constant("obj11"),constant("pos1"))),5),occurs(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")),5),action(action(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")))), ok(811).
@@ -789,12 +825,20 @@ h(variable(("at",constant("tru1"),constant("pos1"))),7) :- step(6),h(variable(("
 ok(815).
 h(variable(("at",constant("obj11"),constant("pos1"))),7) :- step(6),h(variable(("at",constant("obj11"),constant("pos1"))),6),occurs(("load-truck",constant("obj13"),constant("tru1"),constant("pos1")),6),action(action(("load-truck",constant("obj13"),constant("tru1"),constant("pos1")))), ok(816).
 ok(816).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),7) :- step(6),h(variable(("in-city",constant("pos1"),constant("cit1"))),6),occurs(("load-truck",constant("obj13"),constant("tru1"),constant("pos1")),6),action(action(("load-truck",constant("obj13"),constant("tru1"),constant("pos1")))), ok(819).
+ok(819).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),7) :- step(6),h(variable(("in-city",constant("apt1"),constant("cit1"))),6),occurs(("load-truck",constant("obj13"),constant("tru1"),constant("pos1")),6),action(action(("load-truck",constant("obj13"),constant("tru1"),constant("pos1")))), ok(820).
+ok(820).
 h(variable(("in",constant("obj13"),constant("tru1"))),13) :- step(12),h(variable(("in",constant("obj13"),constant("tru1"))),12),occurs(("load-truck",constant("obj11"),constant("tru1"),constant("pos1")),12),action(action(("load-truck",constant("obj11"),constant("tru1"),constant("pos1")))), ok(823).
 ok(823).
 h(variable(("at",constant("obj13"),constant("apt1"))),21) :- step(20),h(variable(("at",constant("obj13"),constant("apt1"))),20),occurs(("unload-truck",constant("obj21"),constant("tru1"),constant("pos1")),20),action(action(("unload-truck",constant("obj21"),constant("tru1"),constant("pos1")))), ok(824).
 ok(824).
 h(variable(("in",constant("obj13"),constant("tru1"))),14) :- step(13),h(variable(("in",constant("obj13"),constant("tru1"))),13),occurs(("drive-truck",constant("tru1"),constant("pos1"),constant("apt1"),constant("cit1")),13),action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("apt1"),constant("cit1")))), ok(829).
 ok(829).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),8) :- step(7),h(variable(("in-city",constant("apt1"),constant("cit1"))),7),occurs(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")),7),action(action(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")))), ok(832).
+ok(832).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),8) :- step(7),h(variable(("in-city",constant("pos1"),constant("cit1"))),7),occurs(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")),7),action(action(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")))), ok(833).
+ok(833).
 h(variable(("at",constant("obj11"),constant("pos1"))),8) :- step(7),h(variable(("at",constant("obj11"),constant("pos1"))),7),occurs(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")),7),action(action(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")))), ok(836).
 ok(836).
 h(variable(("at",constant("tru1"),constant("pos1"))),8) :- step(7),h(variable(("at",constant("tru1"),constant("pos1"))),7),occurs(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")),7),action(action(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")))), ok(837).
@@ -807,6 +851,14 @@ h(variable(("at",constant("tru1"),constant("pos1"))),9) :- step(8),h(variable(("
 ok(840).
 h(variable(("at",constant("obj11"),constant("pos1"))),9) :- step(8),h(variable(("at",constant("obj11"),constant("pos1"))),8),occurs(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2")),8),action(action(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2")))), ok(841).
 ok(841).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),9) :- step(8),h(variable(("in-city",constant("pos1"),constant("cit1"))),8),occurs(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2")),8),action(action(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2")))), ok(844).
+ok(844).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),9) :- step(8),h(variable(("in-city",constant("apt1"),constant("cit1"))),8),occurs(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2")),8),action(action(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2")))), ok(845).
+ok(845).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),10) :- step(9),h(variable(("in-city",constant("apt1"),constant("cit1"))),9),occurs(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")),9),action(action(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")))), ok(854).
+ok(854).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),10) :- step(9),h(variable(("in-city",constant("pos1"),constant("cit1"))),9),occurs(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")),9),action(action(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")))), ok(855).
+ok(855).
 h(variable(("at",constant("obj11"),constant("pos1"))),10) :- step(9),h(variable(("at",constant("obj11"),constant("pos1"))),9),occurs(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")),9),action(action(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")))), ok(858).
 ok(858).
 h(variable(("at",constant("tru1"),constant("pos1"))),10) :- step(9),h(variable(("at",constant("tru1"),constant("pos1"))),9),occurs(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")),9),action(action(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")))), ok(859).
@@ -815,12 +867,44 @@ h(variable(("at",constant("tru1"),constant("pos1"))),11) :- step(10),h(variable(
 ok(860).
 h(variable(("at",constant("obj11"),constant("pos1"))),11) :- step(10),h(variable(("at",constant("obj11"),constant("pos1"))),10),occurs(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1")),10),action(action(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1")))), ok(861).
 ok(861).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),11) :- step(10),h(variable(("in-city",constant("pos1"),constant("cit1"))),10),occurs(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1")),10),action(action(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1")))), ok(864).
+ok(864).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),11) :- step(10),h(variable(("in-city",constant("apt1"),constant("cit1"))),10),occurs(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1")),10),action(action(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1")))), ok(865).
+ok(865).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),12) :- step(11),h(variable(("in-city",constant("apt1"),constant("cit1"))),11),occurs(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")),11),action(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")))), ok(874).
+ok(874).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),12) :- step(11),h(variable(("in-city",constant("pos1"),constant("cit1"))),11),occurs(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")),11),action(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")))), ok(875).
+ok(875).
 h(variable(("at",constant("obj11"),constant("pos1"))),12) :- step(11),h(variable(("at",constant("obj11"),constant("pos1"))),11),occurs(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")),11),action(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")))), ok(878).
 ok(878).
 h(variable(("at",constant("tru1"),constant("pos1"))),12) :- step(11),h(variable(("at",constant("tru1"),constant("pos1"))),11),occurs(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")),11),action(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")))), ok(879).
 ok(879).
 h(variable(("at",constant("tru1"),constant("pos1"))),13) :- step(12),h(variable(("at",constant("tru1"),constant("pos1"))),12),occurs(("load-truck",constant("obj11"),constant("tru1"),constant("pos1")),12),action(action(("load-truck",constant("obj11"),constant("tru1"),constant("pos1")))), ok(880).
 ok(880).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),13) :- step(12),h(variable(("in-city",constant("pos1"),constant("cit1"))),12),occurs(("load-truck",constant("obj11"),constant("tru1"),constant("pos1")),12),action(action(("load-truck",constant("obj11"),constant("tru1"),constant("pos1")))), ok(883).
+ok(883).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),13) :- step(12),h(variable(("in-city",constant("apt1"),constant("cit1"))),12),occurs(("load-truck",constant("obj11"),constant("tru1"),constant("pos1")),12),action(action(("load-truck",constant("obj11"),constant("tru1"),constant("pos1")))), ok(884).
+ok(884).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),14) :- step(13),h(variable(("in-city",constant("apt1"),constant("cit1"))),13),occurs(("drive-truck",constant("tru1"),constant("pos1"),constant("apt1"),constant("cit1")),13),action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("apt1"),constant("cit1")))), ok(891).
+ok(891).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),14) :- step(13),h(variable(("in-city",constant("pos1"),constant("cit1"))),13),occurs(("drive-truck",constant("tru1"),constant("pos1"),constant("apt1"),constant("cit1")),13),action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("apt1"),constant("cit1")))), ok(892).
+ok(892).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),15) :- step(14),h(variable(("in-city",constant("pos1"),constant("cit1"))),14),occurs(("unload-truck",constant("obj13"),constant("tru1"),constant("apt1")),14),action(action(("unload-truck",constant("obj13"),constant("tru1"),constant("apt1")))), ok(897).
+ok(897).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),15) :- step(14),h(variable(("in-city",constant("apt1"),constant("cit1"))),14),occurs(("unload-truck",constant("obj13"),constant("tru1"),constant("apt1")),14),action(action(("unload-truck",constant("obj13"),constant("tru1"),constant("apt1")))), ok(898).
+ok(898).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),16) :- step(15),h(variable(("in-city",constant("apt1"),constant("cit1"))),15),occurs(("load-truck",constant("obj23"),constant("tru1"),constant("apt1")),15),action(action(("load-truck",constant("obj23"),constant("tru1"),constant("apt1")))), ok(905).
+ok(905).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),16) :- step(15),h(variable(("in-city",constant("pos1"),constant("cit1"))),15),occurs(("load-truck",constant("obj23"),constant("tru1"),constant("apt1")),15),action(action(("load-truck",constant("obj23"),constant("tru1"),constant("apt1")))), ok(906).
+ok(906).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),17) :- step(16),h(variable(("in-city",constant("pos1"),constant("cit1"))),16),occurs(("unload-truck",constant("obj11"),constant("tru1"),constant("apt1")),16),action(action(("unload-truck",constant("obj11"),constant("tru1"),constant("apt1")))), ok(911).
+ok(911).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),17) :- step(16),h(variable(("in-city",constant("apt1"),constant("cit1"))),16),occurs(("unload-truck",constant("obj11"),constant("tru1"),constant("apt1")),16),action(action(("unload-truck",constant("obj11"),constant("tru1"),constant("apt1")))), ok(912).
+ok(912).
+h(variable(("in-city",constant("apt1"),constant("cit1"))),18) :- step(17),h(variable(("in-city",constant("apt1"),constant("cit1"))),17),occurs(("load-truck",constant("obj21"),constant("tru1"),constant("apt1")),17),action(action(("load-truck",constant("obj21"),constant("tru1"),constant("apt1")))), ok(919).
+ok(919).
+h(variable(("in-city",constant("pos1"),constant("cit1"))),18) :- step(17),h(variable(("in-city",constant("pos1"),constant("cit1"))),17),occurs(("load-truck",constant("obj21"),constant("tru1"),constant("apt1")),17),action(action(("load-truck",constant("obj21"),constant("tru1"),constant("apt1")))), ok(920).
+ok(920).
 precondition(action(("load-truck",constant("obj23"),constant("tru2"),constant("pos1"))),variable(("at",constant("tru2"),constant("pos1"))),value(variable(("at",constant("tru2"),constant("pos1"))),true)) :- action(action(("load-truck",constant("obj23"),constant("tru2"),constant("pos1")))), ok(941).
 ok(941).
 precondition(action(("load-truck",constant("obj22"),constant("tru2"),constant("pos1"))),variable(("at",constant("tru2"),constant("pos1"))),value(variable(("at",constant("tru2"),constant("pos1"))),true)) :- action(action(("load-truck",constant("obj22"),constant("tru2"),constant("pos1")))), ok(942).

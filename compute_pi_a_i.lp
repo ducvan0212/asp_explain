@@ -188,7 +188,7 @@ for hs in heads:
       rules.extend(head_to_rule[h])
 
 print("========== Calculate Pi_a_i time: {} seconds".format(time.time() - start_time))
-embed()
+
 dumb(pick,set(rules))
 f.close()
 
