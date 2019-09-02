@@ -118,10 +118,11 @@ g = Graph()
 
 start_time = time.time()
   
-#count = 0
+count = 0
+l = len(parsed[1:])
 for rule in parsed[1:]:
-  #print(count)
-  #count += 1
+  print(count,l)
+  count += 1
   accept = 0
   headx = rule[1][1]
   bodyx = rule[0][1]
