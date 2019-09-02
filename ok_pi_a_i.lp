@@ -135,102 +135,18 @@ has(constant("apt2"),type("place")) :- inherits(type("airport"),type("place")),h
 ok(26).
 has(constant("apt1"),type("place")) :- inherits(type("airport"),type("place")),has(constant("apt1"),type("airport")), ok(27).
 ok(27).
-action(action(("load-truck",constant("obj23"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj23"),type("package")), ok(45).
-ok(45).
-action(action(("load-truck",constant("obj22"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj22"),type("package")), ok(46).
-ok(46).
-action(action(("load-truck",constant("obj21"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj21"),type("package")), ok(47).
-ok(47).
-action(action(("load-truck",constant("obj13"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj13"),type("package")), ok(48).
-ok(48).
-action(action(("load-truck",constant("obj12"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj12"),type("package")), ok(49).
-ok(49).
-action(action(("load-truck",constant("obj11"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj11"),type("package")), ok(50).
-ok(50).
-action(action(("load-truck",constant("obj23"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj23"),type("package")), ok(51).
-ok(51).
-action(action(("load-truck",constant("obj22"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj22"),type("package")), ok(52).
-ok(52).
-action(action(("load-truck",constant("obj21"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj21"),type("package")), ok(53).
-ok(53).
 action(action(("load-truck",constant("obj13"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj13"),type("package")), ok(54).
 ok(54).
-action(action(("load-truck",constant("obj12"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj12"),type("package")), ok(55).
-ok(55).
 action(action(("load-truck",constant("obj11"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj11"),type("package")), ok(56).
 ok(56).
 action(action(("load-truck",constant("obj23"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj23"),type("package")), ok(57).
 ok(57).
-action(action(("load-truck",constant("obj22"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj22"),type("package")), ok(58).
-ok(58).
 action(action(("load-truck",constant("obj21"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj21"),type("package")), ok(59).
 ok(59).
-action(action(("load-truck",constant("obj13"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj13"),type("package")), ok(60).
-ok(60).
-action(action(("load-truck",constant("obj12"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj12"),type("package")), ok(61).
-ok(61).
-action(action(("load-truck",constant("obj11"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj11"),type("package")), ok(62).
-ok(62).
-action(action(("load-truck",constant("obj23"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj23"),type("package")), ok(63).
-ok(63).
-action(action(("load-truck",constant("obj22"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj22"),type("package")), ok(64).
-ok(64).
-action(action(("load-truck",constant("obj21"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj21"),type("package")), ok(65).
-ok(65).
-action(action(("load-truck",constant("obj13"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj13"),type("package")), ok(66).
-ok(66).
-action(action(("load-truck",constant("obj12"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj12"),type("package")), ok(67).
-ok(67).
-action(action(("load-truck",constant("obj11"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj11"),type("package")), ok(68).
-ok(68).
-action(action(("load-truck",constant("obj23"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj23"),type("package")), ok(69).
-ok(69).
-action(action(("load-truck",constant("obj22"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj22"),type("package")), ok(70).
-ok(70).
-action(action(("load-truck",constant("obj21"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj21"),type("package")), ok(71).
-ok(71).
-action(action(("load-truck",constant("obj13"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj13"),type("package")), ok(72).
-ok(72).
-action(action(("load-truck",constant("obj12"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj12"),type("package")), ok(73).
-ok(73).
-action(action(("load-truck",constant("obj11"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj11"),type("package")), ok(74).
-ok(74).
-action(action(("load-truck",constant("obj23"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj23"),type("package")), ok(75).
-ok(75).
-action(action(("load-truck",constant("obj22"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj22"),type("package")), ok(76).
-ok(76).
-action(action(("load-truck",constant("obj21"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj21"),type("package")), ok(77).
-ok(77).
-action(action(("load-truck",constant("obj13"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj13"),type("package")), ok(78).
-ok(78).
-action(action(("load-truck",constant("obj12"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj12"),type("package")), ok(79).
-ok(79).
-action(action(("load-truck",constant("obj11"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj11"),type("package")), ok(80).
-ok(80).
-action(action(("load-truck",constant("obj23"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj23"),type("package")), ok(81).
-ok(81).
-action(action(("load-truck",constant("obj22"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj22"),type("package")), ok(82).
-ok(82).
-action(action(("load-truck",constant("obj21"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj21"),type("package")), ok(83).
-ok(83).
-action(action(("load-truck",constant("obj13"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj13"),type("package")), ok(84).
-ok(84).
-action(action(("load-truck",constant("obj12"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj12"),type("package")), ok(85).
-ok(85).
-action(action(("load-truck",constant("obj11"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj11"),type("package")), ok(86).
-ok(86).
 action(action(("load-truck",constant("obj23"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj23"),type("package")), ok(87).
 ok(87).
-action(action(("load-truck",constant("obj22"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj22"),type("package")), ok(88).
-ok(88).
 action(action(("load-truck",constant("obj21"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj21"),type("package")), ok(89).
 ok(89).
-action(action(("load-truck",constant("obj13"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj13"),type("package")), ok(90).
-ok(90).
-action(action(("load-truck",constant("obj12"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj12"),type("package")), ok(91).
-ok(91).
-action(action(("load-truck",constant("obj11"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj11"),type("package")), ok(92).
-ok(92).
 postcondition(action(("load-truck",constant("obj13"),constant("tru1"),constant("pos1"))),effect(unconditional),variable(("in",constant("obj13"),constant("tru1"))),value(variable(("in",constant("obj13"),constant("tru1"))),true)) :- action(action(("load-truck",constant("obj13"),constant("tru1"),constant("pos1")))), ok(102).
 ok(102).
 postcondition(action(("load-truck",constant("obj11"),constant("tru1"),constant("pos1"))),effect(unconditional),variable(("in",constant("obj11"),constant("tru1"))),value(variable(("in",constant("obj11"),constant("tru1"))),true)) :- action(action(("load-truck",constant("obj11"),constant("tru1"),constant("pos1")))), ok(104).
@@ -243,152 +159,24 @@ postcondition(action(("load-truck",constant("obj23"),constant("tru1"),constant("
 ok(135).
 postcondition(action(("load-truck",constant("obj21"),constant("tru1"),constant("apt1"))),effect(unconditional),variable(("in",constant("obj21"),constant("tru1"))),value(variable(("in",constant("obj21"),constant("tru1"))),true)) :- action(action(("load-truck",constant("obj21"),constant("tru1"),constant("apt1")))), ok(137).
 ok(137).
-action(action(("load-airplane",constant("obj23"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj23"),type("package")), ok(141).
-ok(141).
-action(action(("load-airplane",constant("obj22"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj22"),type("package")), ok(142).
-ok(142).
-action(action(("load-airplane",constant("obj21"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj21"),type("package")), ok(143).
-ok(143).
-action(action(("load-airplane",constant("obj13"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj13"),type("package")), ok(144).
-ok(144).
-action(action(("load-airplane",constant("obj12"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj12"),type("package")), ok(145).
-ok(145).
-action(action(("load-airplane",constant("obj11"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj11"),type("package")), ok(146).
-ok(146).
-action(action(("load-airplane",constant("obj23"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj23"),type("package")), ok(147).
-ok(147).
-action(action(("load-airplane",constant("obj22"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj22"),type("package")), ok(148).
-ok(148).
-action(action(("load-airplane",constant("obj21"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj21"),type("package")), ok(149).
-ok(149).
-action(action(("load-airplane",constant("obj13"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj13"),type("package")), ok(150).
-ok(150).
-action(action(("load-airplane",constant("obj12"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj12"),type("package")), ok(151).
-ok(151).
-action(action(("load-airplane",constant("obj11"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj11"),type("package")), ok(152).
-ok(152).
 action(action(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj23"),type("package")), ok(153).
 ok(153).
-action(action(("load-airplane",constant("obj22"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj22"),type("package")), ok(154).
-ok(154).
 action(action(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj21"),type("package")), ok(155).
 ok(155).
-action(action(("load-airplane",constant("obj13"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj13"),type("package")), ok(156).
-ok(156).
-action(action(("load-airplane",constant("obj12"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj12"),type("package")), ok(157).
-ok(157).
-action(action(("load-airplane",constant("obj11"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj11"),type("package")), ok(158).
-ok(158).
-action(action(("load-airplane",constant("obj23"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj23"),type("package")), ok(159).
-ok(159).
-action(action(("load-airplane",constant("obj22"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj22"),type("package")), ok(160).
-ok(160).
-action(action(("load-airplane",constant("obj21"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj21"),type("package")), ok(161).
-ok(161).
-action(action(("load-airplane",constant("obj13"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj13"),type("package")), ok(162).
-ok(162).
-action(action(("load-airplane",constant("obj12"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj12"),type("package")), ok(163).
-ok(163).
-action(action(("load-airplane",constant("obj11"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj11"),type("package")), ok(164).
-ok(164).
 postcondition(action(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2"))),effect(unconditional),variable(("in",constant("obj23"),constant("apn1"))),value(variable(("in",constant("obj23"),constant("apn1"))),true)) :- action(action(("load-airplane",constant("obj23"),constant("apn1"),constant("apt2")))), ok(177).
 ok(177).
 postcondition(action(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2"))),effect(unconditional),variable(("in",constant("obj21"),constant("apn1"))),value(variable(("in",constant("obj21"),constant("apn1"))),true)) :- action(action(("load-airplane",constant("obj21"),constant("apn1"),constant("apt2")))), ok(179).
 ok(179).
-action(action(("unload-truck",constant("obj23"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj23"),type("package")), ok(189).
-ok(189).
-action(action(("unload-truck",constant("obj22"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj22"),type("package")), ok(190).
-ok(190).
-action(action(("unload-truck",constant("obj21"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj21"),type("package")), ok(191).
-ok(191).
-action(action(("unload-truck",constant("obj13"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj13"),type("package")), ok(192).
-ok(192).
-action(action(("unload-truck",constant("obj12"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj12"),type("package")), ok(193).
-ok(193).
-action(action(("unload-truck",constant("obj11"),constant("tru2"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj11"),type("package")), ok(194).
-ok(194).
 action(action(("unload-truck",constant("obj23"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj23"),type("package")), ok(195).
 ok(195).
-action(action(("unload-truck",constant("obj22"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj22"),type("package")), ok(196).
-ok(196).
 action(action(("unload-truck",constant("obj21"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj21"),type("package")), ok(197).
 ok(197).
-action(action(("unload-truck",constant("obj13"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj13"),type("package")), ok(198).
-ok(198).
-action(action(("unload-truck",constant("obj12"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj12"),type("package")), ok(199).
-ok(199).
-action(action(("unload-truck",constant("obj11"),constant("tru1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj11"),type("package")), ok(200).
-ok(200).
-action(action(("unload-truck",constant("obj23"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj23"),type("package")), ok(201).
-ok(201).
-action(action(("unload-truck",constant("obj22"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj22"),type("package")), ok(202).
-ok(202).
-action(action(("unload-truck",constant("obj21"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj21"),type("package")), ok(203).
-ok(203).
-action(action(("unload-truck",constant("obj13"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj13"),type("package")), ok(204).
-ok(204).
-action(action(("unload-truck",constant("obj12"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj12"),type("package")), ok(205).
-ok(205).
-action(action(("unload-truck",constant("obj11"),constant("tru2"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj11"),type("package")), ok(206).
-ok(206).
-action(action(("unload-truck",constant("obj23"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj23"),type("package")), ok(207).
-ok(207).
-action(action(("unload-truck",constant("obj22"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj22"),type("package")), ok(208).
-ok(208).
-action(action(("unload-truck",constant("obj21"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj21"),type("package")), ok(209).
-ok(209).
-action(action(("unload-truck",constant("obj13"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj13"),type("package")), ok(210).
-ok(210).
-action(action(("unload-truck",constant("obj12"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj12"),type("package")), ok(211).
-ok(211).
-action(action(("unload-truck",constant("obj11"),constant("tru1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj11"),type("package")), ok(212).
-ok(212).
 action(action(("unload-truck",constant("obj23"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj23"),type("package")), ok(213).
 ok(213).
-action(action(("unload-truck",constant("obj22"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj22"),type("package")), ok(214).
-ok(214).
 action(action(("unload-truck",constant("obj21"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj21"),type("package")), ok(215).
 ok(215).
-action(action(("unload-truck",constant("obj13"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj13"),type("package")), ok(216).
-ok(216).
-action(action(("unload-truck",constant("obj12"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj12"),type("package")), ok(217).
-ok(217).
-action(action(("unload-truck",constant("obj11"),constant("tru2"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj11"),type("package")), ok(218).
-ok(218).
-action(action(("unload-truck",constant("obj23"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj23"),type("package")), ok(219).
-ok(219).
-action(action(("unload-truck",constant("obj22"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj22"),type("package")), ok(220).
-ok(220).
-action(action(("unload-truck",constant("obj21"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj21"),type("package")), ok(221).
-ok(221).
-action(action(("unload-truck",constant("obj13"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj13"),type("package")), ok(222).
-ok(222).
-action(action(("unload-truck",constant("obj12"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj12"),type("package")), ok(223).
-ok(223).
-action(action(("unload-truck",constant("obj11"),constant("tru1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj11"),type("package")), ok(224).
-ok(224).
-action(action(("unload-truck",constant("obj23"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj23"),type("package")), ok(225).
-ok(225).
-action(action(("unload-truck",constant("obj22"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj22"),type("package")), ok(226).
-ok(226).
-action(action(("unload-truck",constant("obj21"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj21"),type("package")), ok(227).
-ok(227).
-action(action(("unload-truck",constant("obj13"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj13"),type("package")), ok(228).
-ok(228).
-action(action(("unload-truck",constant("obj12"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj12"),type("package")), ok(229).
-ok(229).
-action(action(("unload-truck",constant("obj11"),constant("tru2"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")),has(constant("obj11"),type("package")), ok(230).
-ok(230).
-action(action(("unload-truck",constant("obj23"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj23"),type("package")), ok(231).
-ok(231).
-action(action(("unload-truck",constant("obj22"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj22"),type("package")), ok(232).
-ok(232).
-action(action(("unload-truck",constant("obj21"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj21"),type("package")), ok(233).
-ok(233).
 action(action(("unload-truck",constant("obj13"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj13"),type("package")), ok(234).
 ok(234).
-action(action(("unload-truck",constant("obj12"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj12"),type("package")), ok(235).
-ok(235).
 action(action(("unload-truck",constant("obj11"),constant("tru1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")),has(constant("obj11"),type("package")), ok(236).
 ok(236).
 postcondition(action(("unload-truck",constant("obj23"),constant("tru1"),constant("pos1"))),effect(unconditional),variable(("at",constant("obj23"),constant("pos1"))),value(variable(("at",constant("obj23"),constant("pos1"))),true)) :- action(action(("unload-truck",constant("obj23"),constant("tru1"),constant("pos1")))), ok(243).
@@ -403,200 +191,28 @@ postcondition(action(("unload-truck",constant("obj13"),constant("tru1"),constant
 ok(282).
 postcondition(action(("unload-truck",constant("obj11"),constant("tru1"),constant("apt1"))),effect(unconditional),variable(("at",constant("obj11"),constant("apt1"))),value(variable(("at",constant("obj11"),constant("apt1"))),true)) :- action(action(("unload-truck",constant("obj11"),constant("tru1"),constant("apt1")))), ok(284).
 ok(284).
-action(action(("unload-airplane",constant("obj23"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj23"),type("package")), ok(285).
-ok(285).
-action(action(("unload-airplane",constant("obj22"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj22"),type("package")), ok(286).
-ok(286).
-action(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj21"),type("package")), ok(287).
-ok(287).
-action(action(("unload-airplane",constant("obj13"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj13"),type("package")), ok(288).
-ok(288).
-action(action(("unload-airplane",constant("obj12"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj12"),type("package")), ok(289).
-ok(289).
-action(action(("unload-airplane",constant("obj11"),constant("apn1"),constant("pos1")))) :- has(constant("pos1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj11"),type("package")), ok(290).
-ok(290).
-action(action(("unload-airplane",constant("obj23"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj23"),type("package")), ok(291).
-ok(291).
-action(action(("unload-airplane",constant("obj22"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj22"),type("package")), ok(292).
-ok(292).
-action(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj21"),type("package")), ok(293).
-ok(293).
-action(action(("unload-airplane",constant("obj13"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj13"),type("package")), ok(294).
-ok(294).
-action(action(("unload-airplane",constant("obj12"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj12"),type("package")), ok(295).
-ok(295).
-action(action(("unload-airplane",constant("obj11"),constant("apn1"),constant("pos2")))) :- has(constant("pos2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj11"),type("package")), ok(296).
-ok(296).
-action(action(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj23"),type("package")), ok(297).
-ok(297).
-action(action(("unload-airplane",constant("obj22"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj22"),type("package")), ok(298).
-ok(298).
-action(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj21"),type("package")), ok(299).
-ok(299).
-action(action(("unload-airplane",constant("obj13"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj13"),type("package")), ok(300).
-ok(300).
-action(action(("unload-airplane",constant("obj12"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj12"),type("package")), ok(301).
-ok(301).
-action(action(("unload-airplane",constant("obj11"),constant("apn1"),constant("apt2")))) :- has(constant("apt2"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj11"),type("package")), ok(302).
-ok(302).
 action(action(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj23"),type("package")), ok(303).
 ok(303).
-action(action(("unload-airplane",constant("obj22"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj22"),type("package")), ok(304).
-ok(304).
 action(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj21"),type("package")), ok(305).
 ok(305).
-action(action(("unload-airplane",constant("obj13"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj13"),type("package")), ok(306).
-ok(306).
-action(action(("unload-airplane",constant("obj12"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj12"),type("package")), ok(307).
-ok(307).
-action(action(("unload-airplane",constant("obj11"),constant("apn1"),constant("apt1")))) :- has(constant("apt1"),type("place")),has(constant("apn1"),type("airplane")),has(constant("obj11"),type("package")), ok(308).
-ok(308).
 postcondition(action(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1"))),effect(unconditional),variable(("at",constant("obj23"),constant("apt1"))),value(variable(("at",constant("obj23"),constant("apt1"))),true)) :- action(action(("unload-airplane",constant("obj23"),constant("apn1"),constant("apt1")))), ok(327).
 ok(327).
 postcondition(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1"))),effect(unconditional),variable(("at",constant("obj21"),constant("apt1"))),value(variable(("at",constant("obj21"),constant("apt1"))),true)) :- action(action(("unload-airplane",constant("obj21"),constant("apn1"),constant("apt1")))), ok(329).
 ok(329).
-action(action(("drive-truck",constant("tru2"),constant("pos1"),constant("pos1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos1"),type("place")),has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")), ok(333).
-ok(333).
-action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("pos1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos1"),type("place")),has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")), ok(334).
-ok(334).
-action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("pos1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos1"),type("place")),has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")), ok(335).
-ok(335).
-action(action(("drive-truck",constant("tru1"),constant("pos2"),constant("pos1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos1"),type("place")),has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")), ok(336).
-ok(336).
-action(action(("drive-truck",constant("tru2"),constant("apt2"),constant("pos1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos1"),type("place")),has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")), ok(337).
-ok(337).
-action(action(("drive-truck",constant("tru1"),constant("apt2"),constant("pos1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos1"),type("place")),has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")), ok(338).
-ok(338).
-action(action(("drive-truck",constant("tru2"),constant("apt1"),constant("pos1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos1"),type("place")),has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")), ok(339).
-ok(339).
-action(action(("drive-truck",constant("tru1"),constant("apt1"),constant("pos1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos1"),type("place")),has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")), ok(340).
-ok(340).
-action(action(("drive-truck",constant("tru2"),constant("pos1"),constant("pos2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos2"),type("place")),has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")), ok(341).
-ok(341).
-action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("pos2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos2"),type("place")),has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")), ok(342).
-ok(342).
-action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("pos2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos2"),type("place")),has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")), ok(343).
-ok(343).
-action(action(("drive-truck",constant("tru1"),constant("pos2"),constant("pos2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos2"),type("place")),has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")), ok(344).
-ok(344).
-action(action(("drive-truck",constant("tru2"),constant("apt2"),constant("pos2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos2"),type("place")),has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")), ok(345).
-ok(345).
-action(action(("drive-truck",constant("tru1"),constant("apt2"),constant("pos2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos2"),type("place")),has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")), ok(346).
-ok(346).
-action(action(("drive-truck",constant("tru2"),constant("apt1"),constant("pos2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos2"),type("place")),has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")), ok(347).
-ok(347).
-action(action(("drive-truck",constant("tru1"),constant("apt1"),constant("pos2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("pos2"),type("place")),has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")), ok(348).
-ok(348).
-action(action(("drive-truck",constant("tru2"),constant("pos1"),constant("apt2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt2"),type("place")),has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")), ok(349).
-ok(349).
-action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("apt2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt2"),type("place")),has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")), ok(350).
-ok(350).
 action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt2"),type("place")),has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")), ok(351).
 ok(351).
-action(action(("drive-truck",constant("tru1"),constant("pos2"),constant("apt2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt2"),type("place")),has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")), ok(352).
-ok(352).
-action(action(("drive-truck",constant("tru2"),constant("apt2"),constant("apt2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt2"),type("place")),has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")), ok(353).
-ok(353).
-action(action(("drive-truck",constant("tru1"),constant("apt2"),constant("apt2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt2"),type("place")),has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")), ok(354).
-ok(354).
-action(action(("drive-truck",constant("tru2"),constant("apt1"),constant("apt2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt2"),type("place")),has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")), ok(355).
-ok(355).
-action(action(("drive-truck",constant("tru1"),constant("apt1"),constant("apt2"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt2"),type("place")),has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")), ok(356).
-ok(356).
-action(action(("drive-truck",constant("tru2"),constant("pos1"),constant("apt1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt1"),type("place")),has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")), ok(357).
-ok(357).
-action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("apt1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt1"),type("place")),has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")), ok(358).
-ok(358).
-action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("apt1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt1"),type("place")),has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")), ok(359).
-ok(359).
-action(action(("drive-truck",constant("tru1"),constant("pos2"),constant("apt1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt1"),type("place")),has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")), ok(360).
-ok(360).
-action(action(("drive-truck",constant("tru2"),constant("apt2"),constant("apt1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt1"),type("place")),has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")), ok(361).
-ok(361).
-action(action(("drive-truck",constant("tru1"),constant("apt2"),constant("apt1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt1"),type("place")),has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")), ok(362).
-ok(362).
-action(action(("drive-truck",constant("tru2"),constant("apt1"),constant("apt1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt1"),type("place")),has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")), ok(363).
-ok(363).
-action(action(("drive-truck",constant("tru1"),constant("apt1"),constant("apt1"),constant("cit2")))) :- has(constant("cit2"),type("city")),has(constant("apt1"),type("place")),has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")), ok(364).
-ok(364).
-action(action(("drive-truck",constant("tru2"),constant("pos1"),constant("pos1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos1"),type("place")),has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")), ok(365).
-ok(365).
-action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("pos1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos1"),type("place")),has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")), ok(366).
-ok(366).
-action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("pos1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos1"),type("place")),has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")), ok(367).
-ok(367).
-action(action(("drive-truck",constant("tru1"),constant("pos2"),constant("pos1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos1"),type("place")),has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")), ok(368).
-ok(368).
-action(action(("drive-truck",constant("tru2"),constant("apt2"),constant("pos1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos1"),type("place")),has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")), ok(369).
-ok(369).
-action(action(("drive-truck",constant("tru1"),constant("apt2"),constant("pos1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos1"),type("place")),has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")), ok(370).
-ok(370).
-action(action(("drive-truck",constant("tru2"),constant("apt1"),constant("pos1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos1"),type("place")),has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")), ok(371).
-ok(371).
 action(action(("drive-truck",constant("tru1"),constant("apt1"),constant("pos1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos1"),type("place")),has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")), ok(372).
 ok(372).
-action(action(("drive-truck",constant("tru2"),constant("pos1"),constant("pos2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos2"),type("place")),has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")), ok(373).
-ok(373).
-action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("pos2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos2"),type("place")),has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")), ok(374).
-ok(374).
-action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("pos2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos2"),type("place")),has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")), ok(375).
-ok(375).
-action(action(("drive-truck",constant("tru1"),constant("pos2"),constant("pos2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos2"),type("place")),has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")), ok(376).
-ok(376).
-action(action(("drive-truck",constant("tru2"),constant("apt2"),constant("pos2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos2"),type("place")),has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")), ok(377).
-ok(377).
-action(action(("drive-truck",constant("tru1"),constant("apt2"),constant("pos2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos2"),type("place")),has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")), ok(378).
-ok(378).
-action(action(("drive-truck",constant("tru2"),constant("apt1"),constant("pos2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos2"),type("place")),has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")), ok(379).
-ok(379).
-action(action(("drive-truck",constant("tru1"),constant("apt1"),constant("pos2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("pos2"),type("place")),has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")), ok(380).
-ok(380).
-action(action(("drive-truck",constant("tru2"),constant("pos1"),constant("apt2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt2"),type("place")),has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")), ok(381).
-ok(381).
-action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("apt2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt2"),type("place")),has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")), ok(382).
-ok(382).
-action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt2"),type("place")),has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")), ok(383).
-ok(383).
-action(action(("drive-truck",constant("tru1"),constant("pos2"),constant("apt2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt2"),type("place")),has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")), ok(384).
-ok(384).
-action(action(("drive-truck",constant("tru2"),constant("apt2"),constant("apt2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt2"),type("place")),has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")), ok(385).
-ok(385).
-action(action(("drive-truck",constant("tru1"),constant("apt2"),constant("apt2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt2"),type("place")),has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")), ok(386).
-ok(386).
-action(action(("drive-truck",constant("tru2"),constant("apt1"),constant("apt2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt2"),type("place")),has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")), ok(387).
-ok(387).
-action(action(("drive-truck",constant("tru1"),constant("apt1"),constant("apt2"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt2"),type("place")),has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")), ok(388).
-ok(388).
-action(action(("drive-truck",constant("tru2"),constant("pos1"),constant("apt1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt1"),type("place")),has(constant("pos1"),type("place")),has(constant("tru2"),type("truck")), ok(389).
-ok(389).
 action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("apt1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt1"),type("place")),has(constant("pos1"),type("place")),has(constant("tru1"),type("truck")), ok(390).
 ok(390).
-action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("apt1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt1"),type("place")),has(constant("pos2"),type("place")),has(constant("tru2"),type("truck")), ok(391).
-ok(391).
-action(action(("drive-truck",constant("tru1"),constant("pos2"),constant("apt1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt1"),type("place")),has(constant("pos2"),type("place")),has(constant("tru1"),type("truck")), ok(392).
-ok(392).
-action(action(("drive-truck",constant("tru2"),constant("apt2"),constant("apt1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt1"),type("place")),has(constant("apt2"),type("place")),has(constant("tru2"),type("truck")), ok(393).
-ok(393).
-action(action(("drive-truck",constant("tru1"),constant("apt2"),constant("apt1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt1"),type("place")),has(constant("apt2"),type("place")),has(constant("tru1"),type("truck")), ok(394).
-ok(394).
-action(action(("drive-truck",constant("tru2"),constant("apt1"),constant("apt1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt1"),type("place")),has(constant("apt1"),type("place")),has(constant("tru2"),type("truck")), ok(395).
-ok(395).
-action(action(("drive-truck",constant("tru1"),constant("apt1"),constant("apt1"),constant("cit1")))) :- has(constant("cit1"),type("city")),has(constant("apt1"),type("place")),has(constant("apt1"),type("place")),has(constant("tru1"),type("truck")), ok(396).
-ok(396).
 postcondition(action(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2"))),effect(unconditional),variable(("at",constant("tru2"),constant("apt2"))),value(variable(("at",constant("tru2"),constant("apt2"))),true)) :- action(action(("drive-truck",constant("tru2"),constant("pos2"),constant("apt2"),constant("cit2")))), ok(415).
 ok(415).
 postcondition(action(("drive-truck",constant("tru1"),constant("apt1"),constant("pos1"),constant("cit1"))),effect(unconditional),variable(("at",constant("tru1"),constant("pos1"))),value(variable(("at",constant("tru1"),constant("pos1"))),true)) :- action(action(("drive-truck",constant("tru1"),constant("apt1"),constant("pos1"),constant("cit1")))), ok(436).
 ok(436).
 postcondition(action(("drive-truck",constant("tru1"),constant("pos1"),constant("apt1"),constant("cit1"))),effect(unconditional),variable(("at",constant("tru1"),constant("apt1"))),value(variable(("at",constant("tru1"),constant("apt1"))),true)) :- action(action(("drive-truck",constant("tru1"),constant("pos1"),constant("apt1"),constant("cit1")))), ok(454).
 ok(454).
-action(action(("fly-airplane",constant("apn1"),constant("apt1"),constant("apt1")))) :- has(constant("apt1"),type("airport")),has(constant("apt1"),type("airport")),has(constant("apn1"),type("airplane")), ok(461).
-ok(461).
 action(action(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")))) :- has(constant("apt1"),type("airport")),has(constant("apt2"),type("airport")),has(constant("apn1"),type("airplane")), ok(462).
 ok(462).
-action(action(("fly-airplane",constant("apn1"),constant("apt1"),constant("apt2")))) :- has(constant("apt2"),type("airport")),has(constant("apt1"),type("airport")),has(constant("apn1"),type("airplane")), ok(463).
-ok(463).
-action(action(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt2")))) :- has(constant("apt2"),type("airport")),has(constant("apt2"),type("airport")),has(constant("apn1"),type("airplane")), ok(464).
-ok(464).
 postcondition(action(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1"))),effect(unconditional),variable(("at",constant("apn1"),constant("apt1"))),value(variable(("at",constant("apn1"),constant("apt1"))),true)) :- action(action(("fly-airplane",constant("apn1"),constant("apt2"),constant("apt1")))), ok(466).
 ok(466).
 h(variable(("in",constant("obj13"),constant("tru1"))),7) :- postcondition(action(("load-truck",constant("obj13"),constant("tru1"),constant("pos1"))),effect(unconditional),variable(("in",constant("obj13"),constant("tru1"))),value(variable(("in",constant("obj13"),constant("tru1"))),true)),step(6),occurs(("load-truck",constant("obj13"),constant("tru1"),constant("pos1")),6),action(action(("load-truck",constant("obj13"),constant("tru1"),constant("pos1")))), ok(469).

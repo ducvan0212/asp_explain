@@ -80,9 +80,9 @@ def dumb(pick,rules):
         if i in rules:
           file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
           file.write("{}.\n".format(ok))
-        elif headx[0:12] == "precondition" or headx[0:6] == "action":
+        elif headx[0:12] == "precondition":
           # encode precondition anyway since grounder omits precondtion in #count executable rule
-          # or headx[0:8] == "contains" or headx[0:8] == "variable" or head[0:12] == "initialState": 
+          # or headx[0:6] == "action" or headx[0:8] == "contains" or headx[0:8] == "variable" or head[0:12] == "initialState": 
           file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
           file.write("{}.\n".format(ok))
         #else:
@@ -118,11 +118,11 @@ g = Graph()
 
 start_time = time.time()
   
-count = 0
-l = len(parsed[1:])
+#count = 0
+#l = len(parsed[1:])
 for rule in parsed[1:]:
-  print(count,l)
-  count += 1
+  #print(count,l)
+  #count += 1
   accept = 0
   headx = rule[1][1]
   bodyx = rule[0][1]

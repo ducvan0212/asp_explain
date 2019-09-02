@@ -8,7 +8,8 @@
 ./run.sh <experiment-folder> <instance-type>
 ```
 
-instance-type can be "blockworld" or "logistics"
+instance-type can be "blockworld", "logistics" or "rovers"
+
 E.g
 
 ```
