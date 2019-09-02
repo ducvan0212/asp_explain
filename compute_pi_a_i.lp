@@ -25,6 +25,8 @@ class Graph:
   
   def dependency_for(self,q):
     if q not in self.graph.keys():
+      #if str(q)[:11] == "0 >= #count":
+      #  embed()
       return []
     if self.visited[q] == 1:
       return []
@@ -67,6 +69,10 @@ def dumb(pick,rules):
         count += 1
         ok = "ok({})".format(count)
         if i in rules:
+          file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
+          file.write("{}.\n".format(ok))
+        elif headx[0:12] == "precondition": 
+          # encode precondition anyway since grounder omits precondtion in #count executable rule
           file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
           file.write("{}.\n".format(ok))
         else:
@@ -141,7 +147,8 @@ for rule in parsed[1:]:
   if accept == 1:
     pick.append(rule)
     match = []
-    if "<=" in str(headx) or str(headx)[:6] == "#count":
+    # if "<=" in str(headx) or 
+    if str(headx)[:6] == "#count":
       match = re.findall(r"(\w[\w\(\)\"\,]+)",str(headx))
     else :
       match = [str(headx)]
