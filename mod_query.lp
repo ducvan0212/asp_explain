@@ -1,2 +1,4 @@
-h(variable(("on",constant("crate0"),constant("pallet2"))),11).
-h(variable(("on",constant("crate1"),constant("pallet1"))),11).
+h(variable(("at",constant("obj11"),constant("apt1"))),21).
+h(variable(("at",constant("obj23"),constant("pos1"))),21).
+h(variable(("at",constant("obj13"),constant("apt1"))),21).
+h(variable(("at",constant("obj21"),constant("pos1"))),21).

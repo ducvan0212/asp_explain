@@ -27,7 +27,7 @@ class Graph:
     if q not in self.graph.keys():
       if "#count" in q:
         r = []
-        atoms = re.findall(r"\:([\w\(\)\"\,\s]+)", q)
+        atoms = re.findall(r"\:([\w\(\)\"\,\-\s]+)", q)
         for a in map(lambda x: x.strip(), atoms):
           if a[:3] == "not":
             pos_a = a[3:]
@@ -37,8 +37,8 @@ class Graph:
         return r
       return []
       
-    if self.visited[q] == 1:
-      return []
+    #if self.visited[q] == 1:
+    #  return []
       
     self.visited[q] = 1
     body = self.graph[q]
@@ -188,7 +188,7 @@ for hs in heads:
       rules.extend(head_to_rule[h])
 
 print("========== Calculate Pi_a_i time: {} seconds".format(time.time() - start_time))
-
+embed()
 dumb(pick,set(rules))
 f.close()
 
