@@ -37,8 +37,8 @@ class Graph:
         return r
       return []
       
-    #if self.visited[q] == 1:
-    #  return []
+    if self.visited[q] == 1:
+      return []
       
     self.visited[q] = 1
     body = self.graph[q]
