@@ -13,14 +13,15 @@ print () {
 # QUERY="Exp1/goal.lp"
 # HUMAN="Exp1/human.lp Exp1/plan_horizon.lp"
 PREFIX=$1
+INSTANCE_TYPE=$2
 PROG="${PREFIX}/robot.lp plan.lp"
 HORIZON_PROG="${PREFIX}/robot.lp plan_horizon.lp"
 QUERY="${PREFIX}/query.lp"
 HUMAN="${PREFIX}/human.lp plan_horizon.lp"
 GOAL="${PREFIX}/goal.lp"
 
-I="i.lp"
-J="j.lp"
+I="${PREFIX}/i.lp"
+J="${PREFIX}/j.lp"
 GROUND="ground.lp"
 MOD_GROUND="mod_ground.lp"
 CALL_FILE="call.txt"
@@ -35,6 +36,7 @@ print "==== Find answer set I and number of calls"
 # 3. find an answer set I and number of calls
 # clingo ${PROG} ${QUERY} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${I}
 clingo ${PROG} --outf=0 --out-atomf=%s. | python model.py ${I} ${CALL_FILE}
+cp ${I} i.lp
 
 # filter occurs only
 clingo ${I} filter.lp --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > occurs.lp
@@ -77,7 +79,8 @@ print "==== Compute Π\Πh"
 # compute Π'h = Π\Πh
 time (python compute_n_nh.py ${PREFIX})
 
-clingo output_for_explanation.lp $I --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - simpler_explain_blockworld.lp "${PREFIX}/diff.txt" --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > "${PREFIX}/exp.lp"
+#clingo output_for_explanation.lp $I --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - simpler_explain_blockworld.lp "${PREFIX}/diff.txt" --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > "${PREFIX}/exp.lp"
+clingo output_for_explanation.lp $I --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - "simpler_explain_${INSTANCE_TYPE}.lp" "${PREFIX}/diff.txt" --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > "${PREFIX}/exp.lp"
 
 # print "==== Compute rules that potentially lead to wrong inference with robots"
 # clingo compute_removed_pi_h.lp

@@ -5,13 +5,14 @@
 2. Run 
 
 ```
-./run.sh <experiment-folder>
+./run.sh <experiment-folder> <instance-type>
 ```
 
+instance-type can be "blockworld" or "logistics"
 E.g
 
 ```
-./run.sh Exp1
+./run.sh Exp1 blockworld
 ```
 
 ## Result

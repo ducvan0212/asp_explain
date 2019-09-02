@@ -25,9 +25,18 @@ class Graph:
   
   def dependency_for(self,q):
     if q not in self.graph.keys():
-      #if str(q)[:11] == "0 >= #count":
-      #  embed()
+      if "#count" in q:
+        r = []
+        atoms = re.findall(r"\:([\w\(\)\"\,\s]+)", q)
+        for a in map(lambda x: x.strip(), atoms):
+          if a[:3] == "not":
+            pos_a = a[3:]
+            r = r + [pos_a.strip()] + self.dependency_for(pos_a.strip())
+          else:
+            r = r + [a.strip()] + self.dependency_for(a.strip())
+        return r
       return []
+      
     if self.visited[q] == 1:
       return []
       
@@ -71,13 +80,14 @@ def dumb(pick,rules):
         if i in rules:
           file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
           file.write("{}.\n".format(ok))
-        elif headx[0:12] == "precondition": 
+        elif headx[0:12] == "precondition" or headx[0:6] == "action":
           # encode precondition anyway since grounder omits precondtion in #count executable rule
+          # or headx[0:8] == "contains" or headx[0:8] == "variable" or head[0:12] == "initialState": 
           file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
           file.write("{}.\n".format(ok))
-        else:
-          file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
-          file.write("0 {" + ok + "} 1.\n")
+        #else:
+        #  file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
+        #  file.write("0 {" + ok + "} 1.\n")
         
     
     file.write("#minimize { 1@X:ok(X) }.")
