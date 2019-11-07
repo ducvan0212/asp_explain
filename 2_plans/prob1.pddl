@@ -1,0 +1,6 @@
+(define (problem short-1)
+(:domain SHORT)
+(:objects A - null)
+(:INIT (S0 A))
+(:goal (AND (G A) ))
+)

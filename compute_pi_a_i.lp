@@ -79,15 +79,19 @@ def dumb(pick,rules):
         ok = "ok({})".format(count)
         if i in rules:
           file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
+          # This would be the best to reduce size the triggered rule set, but optimization is always problem
+          # file.write("0 {" + ok + "} 1.\n")
+          # thus, boost computational time by this
           file.write("{}.\n".format(ok))
         elif headx[0:12] == "precondition":
-          # encode precondition anyway since grounder omits precondtion in #count executable rule
+          # encode precondition anyway since grounder omits precondtion in #count executable rule, see test_1.lp
+          # clingo --text --keep-facts test_1.lp
           # or headx[0:6] == "action" or headx[0:8] == "contains" or headx[0:8] == "variable" or head[0:12] == "initialState": 
           file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
           file.write("{}.\n".format(ok))
-        #else:
-        #  file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
-        #  file.write("0 {" + ok + "} 1.\n")
+        else:
+          file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
+          file.write("0 {" + ok + "} 1.\n")
         
     
     file.write("#minimize { 1@X:ok(X) }.")

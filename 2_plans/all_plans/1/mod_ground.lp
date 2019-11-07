@@ -43,11 +43,11 @@ h(variable(("s1",constant("a"))),3):-step(2),h(variable(("s1",constant("a"))),2)
 h(variable(("s1",constant("a"))),3):-step(2),h(variable(("s1",constant("a"))),2),occurs(("action-2",constant("a")),2),action(action(("action-2",constant("a")))).
 h(variable(("s1",constant("a"))),3):-step(2),h(variable(("s1",constant("a"))),2),occurs(("action-5",constant("a")),2),action(action(("action-5",constant("a")))).
 h(variable(("s1",constant("a"))),3):-step(2),h(variable(("s1",constant("a"))),2),occurs(("action-4",constant("a")),2),action(action(("action-4",constant("a")))).
+h(variable(("s0",constant("a"))),2):-step(1),h(variable(("s0",constant("a"))),1),occurs(("action-4",constant("a")),1),action(action(("action-4",constant("a")))).
 h(variable(("s0",constant("a"))),2):-step(1),h(variable(("s0",constant("a"))),1),occurs(("action-1",constant("a")),1),action(action(("action-1",constant("a")))).
 h(variable(("s0",constant("a"))),2):-step(1),h(variable(("s0",constant("a"))),1),occurs(("action-2",constant("a")),1),action(action(("action-2",constant("a")))).
 h(variable(("s0",constant("a"))),2):-step(1),h(variable(("s0",constant("a"))),1),occurs(("action-3",constant("a")),1),action(action(("action-3",constant("a")))).
 h(variable(("s0",constant("a"))),2):-step(1),h(variable(("s0",constant("a"))),1),occurs(("action-5",constant("a")),1),action(action(("action-5",constant("a")))).
-h(variable(("s0",constant("a"))),2):-step(1),h(variable(("s0",constant("a"))),1),occurs(("action-4",constant("a")),1),action(action(("action-4",constant("a")))).
 precondition(action(("action-1",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)):-action(action(("action-1",constant("a")))).
 precondition(action(("action-2",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)):-action(action(("action-2",constant("a")))).
 precondition(action(("action-3",constant("a"))),variable(("s1",constant("a"))),value(variable(("s1",constant("a"))),true)):-action(action(("action-3",constant("a")))).

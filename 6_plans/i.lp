@@ -1,0 +1,1 @@
+step(1). step(2). step(3). occurs(("action-2",constant("a")),1). occurs(("action-9",constant("a")),2).

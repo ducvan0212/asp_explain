@@ -23,3 +23,5 @@ executable(A, t):-  action(action(A)),
 #program check(t).
 
 :- query(t), goal(X, value(X, true)), not h(X, t).
+
+#show occurs/2.
