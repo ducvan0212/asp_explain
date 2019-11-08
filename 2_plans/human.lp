@@ -41,6 +41,24 @@ action(action(("action-4", X1))) :- has(X1, type("null")).
 precondition(action(("action-4", X1)), variable(("s0", X1)), value(variable(("s0", X1)), true)) :- action(action(("action-4", X1))).
 postcondition(action(("action-4", X1)), effect(unconditional), variable(("g", X1)), value(variable(("g", X1)), true)) :- action(action(("action-4", X1))).
 
+
+
+% executable(("action-1", X1), T):-  action(action(("action-1", X1))), step(T),
+%                     precondition(action(("action-1", X1)), variable(("s0", X1)), value(variable(("s0", X1)), true)), h(variable(("s0", X1)), T). 
+% 
+% executable(("action-2", X1), T):-  action(action(("action-2", X1))), step(T),
+%                     precondition(action(("action-2", X1)), variable(("s0", X1)), value(variable(("s0", X1)), true)), h(variable(("s0", X1)), T). 
+%                           
+% executable(("action-3", X1), T):-  action(action(("action-3", X1))), step(T),
+%                     precondition(action(("action-3", X1)), variable(("s1", X1)), value(variable(("s1", X1)), true)), h(variable(("s1", X1)), T). 
+%               
+% executable(("action-5", X1), T):-  action(action(("action-5", X1))), step(T),
+%                     precondition(action(("action-5", X1)), variable(("g", X1)), value(variable(("g", X1)), true)), h(variable(("g", X1)), T). 
+%                     
+% executable(("action-4", X1), T):-  action(action(("action-4", X1))), step(T),
+%                     precondition(action(("action-4", X1)), variable(("s0", X1)), value(variable(("s0", X1)), true)), h(variable(("s0", X1)), T). 
+%                     
+
 %---------------------------------------
 % problem
 %---------------------------------------
@@ -56,3 +74,6 @@ initialState(X, value(X, false)) :- variable(X), not initialState(X, value(X, tr
 
 % goal
 goal(variable(("g", constant("a"))), value(variable(("g", constant("a"))), true)).
+
+% #show executable/2.
+% #show occurs/2.

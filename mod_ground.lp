@@ -49,24 +49,23 @@ h(variable(("s0",constant("a"))),2):-step(1),h(variable(("s0",constant("a"))),1)
 h(variable(("s0",constant("a"))),2):-step(1),h(variable(("s0",constant("a"))),1),occurs(("action-5",constant("a")),1),action(action(("action-5",constant("a")))).
 h(variable(("s0",constant("a"))),2):-step(1),h(variable(("s0",constant("a"))),1),occurs(("action-4",constant("a")),1),action(action(("action-4",constant("a")))).
 precondition(action(("action-1",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)):-action(action(("action-1",constant("a")))).
+executable(("action-1",constant("a")),1):-h(variable(("s0",constant("a"))),1),precondition(action(("action-1",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)),step(1),action(action(("action-1",constant("a")))).
+executable(("action-1",constant("a")),2):-h(variable(("s0",constant("a"))),2),precondition(action(("action-1",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)),step(2),action(action(("action-1",constant("a")))).
 precondition(action(("action-2",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)):-action(action(("action-2",constant("a")))).
+executable(("action-2",constant("a")),1):-h(variable(("s0",constant("a"))),1),precondition(action(("action-2",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)),step(1),action(action(("action-2",constant("a")))).
+executable(("action-2",constant("a")),2):-h(variable(("s0",constant("a"))),2),precondition(action(("action-2",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)),step(2),action(action(("action-2",constant("a")))).
 precondition(action(("action-3",constant("a"))),variable(("s1",constant("a"))),value(variable(("s1",constant("a"))),true)):-action(action(("action-3",constant("a")))).
+executable(("action-3",constant("a")),2):-h(variable(("s1",constant("a"))),2),precondition(action(("action-3",constant("a"))),variable(("s1",constant("a"))),value(variable(("s1",constant("a"))),true)),step(2),action(action(("action-3",constant("a")))).
 precondition(action(("action-5",constant("a"))),variable(("g",constant("a"))),value(variable(("g",constant("a"))),true)):-action(action(("action-5",constant("a")))).
+executable(("action-5",constant("a")),2):-h(variable(("g",constant("a"))),2),precondition(action(("action-5",constant("a"))),variable(("g",constant("a"))),value(variable(("g",constant("a"))),true)),step(2),action(action(("action-5",constant("a")))).
 precondition(action(("action-4",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)):-action(action(("action-4",constant("a")))).
-executable(("action-1",constant("a")),1):-step(1),action(action(("action-1",constant("a")))).
-executable(("action-2",constant("a")),1):-step(1),action(action(("action-2",constant("a")))).
-executable(("action-5",constant("a")),1):-step(1),action(action(("action-5",constant("a")))),0>=#count{1,variable(("g",constant("a"))):not h(variable(("g",constant("a"))),1)}.
-executable(("action-4",constant("a")),1):-step(1),action(action(("action-4",constant("a")))).
-executable(("action-1",constant("a")),2):-step(2),action(action(("action-1",constant("a")))),0>=#count{1,variable(("s0",constant("a"))):not h(variable(("s0",constant("a"))),2)}.
-executable(("action-2",constant("a")),2):-step(2),action(action(("action-2",constant("a")))),0>=#count{1,variable(("s0",constant("a"))):not h(variable(("s0",constant("a"))),2)}.
-executable(("action-3",constant("a")),2):-step(2),action(action(("action-3",constant("a")))),0>=#count{1,variable(("s1",constant("a"))):not h(variable(("s1",constant("a"))),2)}.
-executable(("action-5",constant("a")),2):-step(2),action(action(("action-5",constant("a")))),0>=#count{1,variable(("g",constant("a"))):not h(variable(("g",constant("a"))),2)}.
-executable(("action-4",constant("a")),2):-step(2),action(action(("action-4",constant("a")))),0>=#count{1,variable(("s0",constant("a"))):not h(variable(("s0",constant("a"))),2)}.
+executable(("action-4",constant("a")),1):-h(variable(("s0",constant("a"))),1),precondition(action(("action-4",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)),step(1),action(action(("action-4",constant("a")))).
+executable(("action-4",constant("a")),2):-h(variable(("s0",constant("a"))),2),precondition(action(("action-4",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)),step(2),action(action(("action-4",constant("a")))).
 :-occurs(("action-1",constant("a")),2),action(action(("action-1",constant("a")))),not executable(("action-1",constant("a")),2).
 :-occurs(("action-2",constant("a")),2),action(action(("action-2",constant("a")))),not executable(("action-2",constant("a")),2).
 :-occurs(("action-3",constant("a")),1),action(action(("action-3",constant("a")))).
 :-occurs(("action-3",constant("a")),2),action(action(("action-3",constant("a")))),not executable(("action-3",constant("a")),2).
-:-occurs(("action-5",constant("a")),1),action(action(("action-5",constant("a")))),not executable(("action-5",constant("a")),1).
+:-occurs(("action-5",constant("a")),1),action(action(("action-5",constant("a")))).
 :-occurs(("action-5",constant("a")),2),action(action(("action-5",constant("a")))),not executable(("action-5",constant("a")),2).
 :-occurs(("action-4",constant("a")),2),action(action(("action-4",constant("a")))),not executable(("action-4",constant("a")),2).
 :-goal(variable(("g",constant("a"))),value(variable(("g",constant("a"))),true)),not h(variable(("g",constant("a"))),2).

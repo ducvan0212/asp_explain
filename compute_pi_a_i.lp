@@ -67,6 +67,10 @@ def dumb(pick,rules):
     count = 0
     for i, rule in enumerate(pick):
       headx = str(rule[1][1])
+      
+      # if str(headx)[0:10] == "executable":
+      #   embed()
+        
       bodyx = rule[0][1]
       head = str(headx)
       body = map(lambda x: str(x), bodyx)
@@ -80,18 +84,19 @@ def dumb(pick,rules):
         if i in rules:
           file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
           # This would be the best to reduce size the triggered rule set, but optimization is always problem
-          # file.write("0 {" + ok + "} 1.\n")
+          file.write("0 {" + ok + "} 1.\n")
           # thus, boost computational time by this
-          file.write("{}.\n".format(ok))
+          # file.write("{}.\n".format(ok))
         elif headx[0:12] == "precondition":
-          # encode precondition anyway since grounder omits precondtion in #count executable rule, see test_1.lp
+          # encode precondition anyway since grounder omits precondtion in #count executable rule, see test_1.lp. Then we have to change to not_executable encode
           # clingo --text --keep-facts test_1.lp
           # or headx[0:6] == "action" or headx[0:8] == "contains" or headx[0:8] == "variable" or head[0:12] == "initialState": 
           file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
-          file.write("{}.\n".format(ok))
-        else:
-          file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
+          # file.write("{}.\n".format(ok))
           file.write("0 {" + ok + "} 1.\n")
+        # else:
+        #   file.write("{} :- {}, {}.\n".format(head, ",".join(body), ok))
+        #   file.write("0 {" + ok + "} 1.\n")
         
     
     file.write("#minimize { 1@X:ok(X) }.")
@@ -132,24 +137,35 @@ for rule in parsed[1:]:
   bodyx = rule[0][1]
   negx  = find_neg(bodyx)
   posx = find_pos(bodyx)
-  
+  pick_flag = 1
   if str(headx) == "#false":
-    pick.append(rule)
-    for n in negx:
-      #if n in head_to_rule.keys():
-      #  head_to_rule[n].append( len(pick) - 1 )
-      #else:
-      #  head_to_rule[n] = [len(pick) - 1]
-      g.addEdge("TRUE",n)
     for p in posx:
-      g.addEdge("TRUE",p)
+      if p not in atoms:
+        pick_flag = 0
+        break
+    print(posx)
+    print(negx)
+    print(pick_flag)
+    
+    if pick_flag:
+      pick.append(rule)
+      
+      for n in negx:
+        #if n in head_to_rule.keys():
+        #  head_to_rule[n].append( len(pick) - 1 )
+        #else:
+        #  head_to_rule[n] = [len(pick) - 1]
+        g.addEdge("TRUE",n)
+      #for p in posx:
+      #  g.addEdge("TRUE",p)
       
     continue
+    
   for a in atoms:
     if a in str(headx):
       accept = 1
       break
-    
+      
   if accept == 0:
     continue
   if negx:
@@ -181,7 +197,18 @@ for rule in parsed[1:]:
     else:
       for m in match:
         g.addEdge(m,None)
-
+        
+    # if str(headx)[0:12] == "precondition" or str(headx)[0:10] == "executable":
+    #    print(str(headx))
+    #    print(posx)
+    #    print(negx)
+     
+    
+    # if negx:
+    #   for p in negx:
+    #     for m in match:
+    #       g.addEdge(m, p)    
+          
 query_set = query[:-1]
 query_set.append("TRUE")
 heads = map(lambda q: g.dependency_for(q.replace(".","").replace(" ","")), query_set) 
@@ -193,6 +220,8 @@ for hs in heads:
       rules.extend(head_to_rule[h])
 
 print("========== Calculate Pi_a_i time: {} seconds".format(time.time() - start_time))
+
+# embed()
 
 dumb(pick,set(rules))
 f.close()
