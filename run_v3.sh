@@ -195,7 +195,6 @@ do
     len=$(echo ${f} | tr -cd '.' | wc -c)
     if [ ${len} -gt ${LENGTH} ];
     then
-      echo "${len} break"
       continue
     fi
     
@@ -205,7 +204,6 @@ do
     then
       if [ ${LENGTH} -gt ${len} ];
       then
-        echo "${len}"
         EXPLANATION=(${count})
         LENGTH=${len}
       else 
