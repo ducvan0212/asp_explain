@@ -1,3 +1,0 @@
-h(variable(("g",constant("a"))),2):-postcondition(action(("action-4",constant("a"))),effect(unconditional),variable(("g",constant("a"))),value(variable(("g",constant("a"))),true)),step(1),occurs(("action-4",constant("a")),1),action(action(("action-4",constant("a")))).
-precondition(action(("action-7",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)):-action(action(("action-7",constant("a")))).
-precondition(action(("action-4",constant("a"))),variable(("s0",constant("a"))),value(variable(("s0",constant("a"))),true)):-action(action(("action-4",constant("a")))).
