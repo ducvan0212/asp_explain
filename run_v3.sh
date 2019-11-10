@@ -192,14 +192,20 @@ do
     # new_human_domain="${expl_path}/new_human_domain.lp"
 #
 #echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${new_human_domain}
+    len=$(echo ${f} | tr -cd '.' | wc -c)
+    if [ ${len} -gt ${LENGTH} ];
+    then
+      echo "${len} break"
+      continue
+    fi
     
     new_plan=$(echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - plan_horizon.lp -c horizon=$(($call-1)) --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1)
 
     if [ "$new_plan" == "UNSATISFIABLE" ];
     then
-      len=$(echo ${f} | tr -cd '.' | wc -c)
       if [ ${LENGTH} -gt ${len} ];
       then
+        echo "${len}"
         EXPLANATION=(${count})
         LENGTH=${len}
       else 
@@ -229,6 +235,7 @@ array_contains () {
   return $in    
 }
 
+# create record of explanations
 expl_count=1
 while read f
 do
