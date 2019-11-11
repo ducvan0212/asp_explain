@@ -1,3 +1,0 @@
-action(action(("action-1",constant("a")))) :- has(constant("a"),type("null")), ok(2).
-postcondition(action(("action-1",constant("a"))),effect(unconditional),variable(("g",constant("a"))),value(variable(("g",constant("a"))),true)) :- action(action(("action-1",constant("a")))), ok(3).
-h(variable(("g",constant("a"))),2) :- postcondition(action(("action-1",constant("a"))),effect(unconditional),variable(("g",constant("a"))),value(variable(("g",constant("a"))),true)),step(1),occurs(("action-1",constant("a")),1),action(action(("action-1",constant("a")))), ok(14).

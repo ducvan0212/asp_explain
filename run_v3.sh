@@ -163,7 +163,8 @@ do
 done < ${ALL_PLANS}
 
 print "==== Compute all possible explanations from the union"
-[ -d "${PREFIX}/all_expl" ] || mkdir "${PREFIX}/all_expl"
+rm -r "${PREFIX}/all_expl"
+mkdir "${PREFIX}/all_expl"
 
 clingo ${union_human_model_intersect_domain_minus_robot_domain} --outf=0 -V0 --out-atomf=h_r\(%s\). --quiet=1,2,2 | head -n1 > ${union_human_model_intersect_domain_minus_robot_domain_in_wrapper}
 
@@ -198,18 +199,22 @@ do
       continue
     fi
     
-    new_plan=$(echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - plan_horizon.lp -c horizon=$(($call-1)) --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1)
-
-    if [ "$new_plan" == "UNSATISFIABLE" ];
+    unsat_plan=$(echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - plan_horizon.lp -c horizon=$(($call-1)) --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1)
+    
+    if [ "$unsat_plan" == "UNSATISFIABLE" ];
     then
-      if [ ${LENGTH} -gt ${len} ];
+      new_sat_plan=$(echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - plan_horizon.lp -c horizon=$(($call)) --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1)
+      if [ "$new_sat_plan" != "UNSATISFIABLE" ];
       then
-        EXPLANATION=(${count})
-        LENGTH=${len}
-      else 
-        if [ ${LENGTH} -eq ${len} ];
+        if [ ${LENGTH} -gt ${len} ];
         then
-          EXPLANATION+=( ${count} )
+          EXPLANATION=(${count})
+          LENGTH=${len}
+        else 
+          if [ ${LENGTH} -eq ${len} ];
+          then
+            EXPLANATION+=( ${count} )
+          fi
         fi
       fi
     fi
