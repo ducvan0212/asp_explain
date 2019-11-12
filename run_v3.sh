@@ -75,19 +75,23 @@ clingo ${HUMAN_DOMAIN} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > $
 
 clingo ${HUMAN_DOMAIN_FACT} --outf=0 -V0 --out-atomf=human_domain\(%s\). --quiet=1,2,2 | head -n1 > ${HUMAN_DOMAIN_FACT_IN_WRAPPER}
 
-# what need to add to human KB (X \ pi_h)
-clingo compute_x_pi_h.lp ${ROBOT_MODEL_INTERSECT_DOMAIN_IN_WRAPPER} ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${ROBOT_MODEL_INTERSECT_DOMAIN_MINUS_HUMAN_DOMAIN}
+# what is in human but not in robot
+HUMAN_DOMAIN_MINUS_ROBOT_DOMAIN="${PREFIX}/pi_h_pi_a.lp"
+clingo compute_human_domain_minus_robot_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} ${ROBOT_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${HUMAN_DOMAIN_MINUS_ROBOT_DOMAIN}
 
-# what need to remove from human KB ( pi_h \ X)
-clingo compute_pi_h_x.lp ${ROBOT_MODEL_INTERSECT_DOMAIN_IN_WRAPPER} ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${HUMAN_DOMAIN_MINUS_ROBOT_MODEL_INTERSECT_DOMAIN}
-
-ROBOT_MODEL_MINUS_HUMAN_DOMAIN="${PREFIX}/pi_a_pi_h.lp"
-# if [ "$HUMAN_HAS_PLAN" == "UNSATISFIABLE" ];
-# then
-  clingo ${ROBOT_MODEL_IN_WRAPPER} ${HUMAN_DOMAIN_FACT_IN_WRAPPER} compute_robot_model_minus_pi_h.lp --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${ROBOT_MODEL_MINUS_HUMAN_DOMAIN}
-  
-  ADD_RULES=${ROBOT_MODEL_MINUS_HUMAN_DOMAIN}
-  REMOVE_RULES=${HUMAN_DOMAIN_MINUS_ROBOT_MODEL_INTERSECT_DOMAIN}
+# # what need to add to human KB (X \ pi_h)
+# clingo compute_x_pi_h.lp ${ROBOT_MODEL_INTERSECT_DOMAIN_IN_WRAPPER} ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${ROBOT_MODEL_INTERSECT_DOMAIN_MINUS_HUMAN_DOMAIN}
+#
+# # what need to remove from human KB ( pi_h \ X)
+# clingo compute_pi_h_x.lp ${ROBOT_MODEL_INTERSECT_DOMAIN_IN_WRAPPER} ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${HUMAN_DOMAIN_MINUS_ROBOT_MODEL_INTERSECT_DOMAIN}
+#
+# ROBOT_MODEL_MINUS_HUMAN_DOMAIN="${PREFIX}/pi_a_pi_h.lp"
+# # if [ "$HUMAN_HAS_PLAN" == "UNSATISFIABLE" ];
+# # then
+#   clingo ${ROBOT_MODEL_IN_WRAPPER} ${HUMAN_DOMAIN_FACT_IN_WRAPPER} compute_robot_model_minus_pi_h.lp --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${ROBOT_MODEL_MINUS_HUMAN_DOMAIN}
+#
+#   ADD_RULES=${ROBOT_MODEL_MINUS_HUMAN_DOMAIN}
+#   REMOVE_RULES=${HUMAN_DOMAIN_MINUS_ROBOT_MODEL_INTERSECT_DOMAIN}
 # fi
 
 # if [ "$HUMAN_HAS_PLAN" != "UNSATISFIABLE" ];
