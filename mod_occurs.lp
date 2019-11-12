@@ -1,1 +1,16 @@
-0 { UNKNOWN } 1.
+0 { occurs(("unstack",constant("d"),constant("b")),1) } 1.
+0 { occurs(("stack",constant("d"),constant("h")),2) } 1.
+0 { occurs(("pickup",constant("a")),3) } 1.
+0 { occurs(("stack",constant("a"),constant("d")),4) } 1.
+0 { occurs(("unstack",constant("b"),constant("f")),5) } 1.
+0 { occurs(("putdown",constant("b")),6) } 1.
+0 { occurs(("unstack",constant("f"),constant("g")),7) } 1.
+0 { occurs(("stack",constant("f"),constant("a")),8) } 1.
+0 { occurs(("pickup",constant("g")),9) } 1.
+0 { occurs(("stack",constant("g"),constant("f")),10) } 1.
+0 { occurs(("pickup",constant("e")),11) } 1.
+0 { occurs(("stack",constant("e"),constant("g")),12) } 1.
+0 { occurs(("pickup",constant("b")),13) } 1.
+0 { occurs(("stack",constant("b"),constant("e")),14) } 1.
+0 { occurs(("pickup",constant("c")),15) } 1.
+0 { occurs(("stack",constant("c"),constant("b")),16) } 1.

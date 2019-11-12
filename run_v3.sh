@@ -56,6 +56,8 @@ do
   count=$(($count-1))
 done
 
+HUMAN_HAS_PLAN=$(head -n 1 $ALL_PLANS)
+
 # extract facts from robot domain
 clingo ${ROBOT_DOMAIN} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${ROBOT_DOMAIN_FACT}
 
@@ -79,150 +81,183 @@ clingo compute_x_pi_h.lp ${ROBOT_MODEL_INTERSECT_DOMAIN_IN_WRAPPER} ${HUMAN_DOMA
 # what need to remove from human KB ( pi_h \ X)
 clingo compute_pi_h_x.lp ${ROBOT_MODEL_INTERSECT_DOMAIN_IN_WRAPPER} ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${HUMAN_DOMAIN_MINUS_ROBOT_MODEL_INTERSECT_DOMAIN}
 
+ROBOT_MODEL_MINUS_HUMAN_DOMAIN="${PREFIX}/pi_a_pi_h.lp"
+if [ "$HUMAN_HAS_PLAN" == "UNSATISFIABLE" ];
+then
+  clingo ${ROBOT_DOMAIN_FACT_IN_WRAPPER} ${HUMAN_DOMAIN_FACT_IN_WRAPPER} compute_pi_a_minus_pi_h.lp --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${ROBOT_MODEL_MINUS_HUMAN_DOMAIN}
+  
+  ADD_RULES=${ROBOT_MODEL_MINUS_HUMAN_DOMAIN}
+  REMOVE_RULES=${HUMAN_DOMAIN_MINUS_ROBOT_MODEL_INTERSECT_DOMAIN}
+fi
 
-print "==== For each plan P_i from human, compute explanation set"
+if [ "$HUMAN_HAS_PLAN" != "UNSATISFIABLE" ];
+then
+  
+  print "==== For each plan P_i from human, compute explanation set"
 
-[ -d "${PREFIX}/all_plans" ] || mkdir "${PREFIX}/all_plans"
+  [ -d "${PREFIX}/all_plans" ] || mkdir "${PREFIX}/all_plans"
 
-count=1
+  count=1
 
-while read f
-do  
-  if [ "$f" != "SATISFIABLE" -a "$f" != "UNSATISFIABLE" ];
-  then
-    print "P_i: ${count}"
-    print "$f"
+  while read f
+  do  
+    if [ "$f" != "SATISFIABLE" -a "$f" != "UNSATISFIABLE" ];
+    then
+      print "P_i: ${count}"
+      print "$f"
     
-    model_path="${PREFIX}/all_plans/${count}"
-    [ -d "${model_path}" ] || mkdir "${model_path}"
-    human_model="${model_path}/model.lp"
-    human_model_in_wrapper="${model_path}/human_model_in_wrapper.lp"
-    human_model_intersect_domain="${model_path}/pi_h_intersect_P_i.lp"
-    human_model_intersect_domain_in_wrapper="${model_path}/pi_h_intersect_P_i_in_wrapper.lp"
-    human_model_intersect_domain_minus_robot_domain="${model_path}/x_pi_a.lp"
-    robot_domain_minus_human_model_intersect_domain="${model_path}/pi_a_x.lp"
-    echo $f > ${human_model}
+      model_path="${PREFIX}/all_plans/${count}"
+      [ -d "${model_path}" ] || mkdir "${model_path}"
+      human_model="${model_path}/model.lp"
+      human_model_in_wrapper="${model_path}/human_model_in_wrapper.lp"
+      human_model_intersect_domain="${model_path}/pi_h_intersect_P_i.lp"
+      human_model_intersect_domain_in_wrapper="${model_path}/pi_h_intersect_P_i_in_wrapper.lp"
+      human_model_intersect_domain_minus_robot_domain="${model_path}/x_pi_a.lp"
+      robot_domain_minus_human_model_intersect_domain="${model_path}/pi_a_x.lp"
+      echo $f > ${human_model}
 
-    # find set X = intersection of pi_h (human domain) and P_i (answer set)
-    clingo ${human_model} --outf=0 -V0 --out-atomf=human_model\(%s\). --quiet=1,2,2 | head -n1 > ${human_model_in_wrapper}
+      # find set X = intersection of pi_h (human domain) and P_i (answer set)
+      clingo ${human_model} --outf=0 -V0 --out-atomf=human_model\(%s\). --quiet=1,2,2 | head -n1 > ${human_model_in_wrapper}
     
-    clingo compute_pi_h_intersect_P_i.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} ${human_model_in_wrapper} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${human_model_intersect_domain}
+      clingo compute_pi_h_intersect_P_i.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} ${human_model_in_wrapper} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${human_model_intersect_domain}
     
-    clingo ${human_model_intersect_domain} --outf=0 -V0 --out-atomf=human\(%s\). --quiet=1,2,2 | head -n1 > ${human_model_intersect_domain_in_wrapper}
+      clingo ${human_model_intersect_domain} --outf=0 -V0 --out-atomf=human\(%s\). --quiet=1,2,2 | head -n1 > ${human_model_intersect_domain_in_wrapper}
     
-    # what is in human, but in robot (Ni = X \ pi_a)
-    clingo compute_x_pi_a.lp ${human_model_intersect_domain_in_wrapper} ${ROBOT_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${human_model_intersect_domain_minus_robot_domain}
+      # what is in human, but in robot (Ni = X \ pi_a)
+      clingo compute_x_pi_a.lp ${human_model_intersect_domain_in_wrapper} ${ROBOT_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${human_model_intersect_domain_minus_robot_domain}
     
-    # what is in robot, but in human (Mi = pi_a \ X )
-    clingo compute_pi_a_x.lp ${human_model_intersect_domain_in_wrapper} ${ROBOT_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${robot_domain_minus_human_model_intersect_domain}
+      # what is in robot, but in human (Mi = pi_a \ X )
+      clingo compute_pi_a_x.lp ${human_model_intersect_domain_in_wrapper} ${ROBOT_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${robot_domain_minus_human_model_intersect_domain}
         
-    count=$(($count+1))
-    print ""
-  fi
-done < ${ALL_PLANS}
+      count=$(($count+1))
+      print ""
+    fi
+  done < ${ALL_PLANS}
 
-# compute union of all Ni, union of all Mi
-temp1="${PREFIX}/all_plans/temp1.lp"
-temp2="${PREFIX}/all_plans/temp2.lp"
-union_human_model_intersect_domain_minus_robot_domain="${PREFIX}/all_plans/union_x_pi_a.lp"
-union_human_model_intersect_domain_minus_robot_domain_in_wrapper="${PREFIX}/all_plans/union_x_pi_a_in_wrapper.lp"
-union_robot_domain_minus_human_model_intersect_domain="${PREFIX}/all_plans/union_pi_a_x.lp"
-union_robot_domain_minus_human_model_intersect_domain_in_wrapper="${PREFIX}/all_plans/union_pi_a_x_in_wrapper.lp"
+  # compute union of all Ni, union of all Mi
+  temp1="${PREFIX}/all_plans/temp1.lp"
+  temp2="${PREFIX}/all_plans/temp2.lp"
+  union_human_model_intersect_domain_minus_robot_domain="${PREFIX}/all_plans/union_x_pi_a.lp"
+  union_robot_domain_minus_human_model_intersect_domain="${PREFIX}/all_plans/union_pi_a_x.lp"
 
-cp "${PREFIX}/all_plans/1/x_pi_a.lp" ${union_human_model_intersect_domain_minus_robot_domain}
+  cp "${PREFIX}/all_plans/1/x_pi_a.lp" ${union_human_model_intersect_domain_minus_robot_domain}
 
-cp "${PREFIX}/all_plans/1/pi_a_x.lp" ${union_robot_domain_minus_human_model_intersect_domain}
+  cp "${PREFIX}/all_plans/1/pi_a_x.lp" ${union_robot_domain_minus_human_model_intersect_domain}
 
-print "==== Compute union"
+  print "==== Compute union"
 
-count=1
-while read f
-do
-  if [ "$f" != "SATISFIABLE" -a "$f" != "UNSATISFIABLE" ];
-  then
-    model_path="${PREFIX}/all_plans/${count}"
-    human_model_intersect_domain_minus_robot_domain="${model_path}/x_pi_a.lp"
+  count=1
+  while read f
+  do
+    if [ "$f" != "SATISFIABLE" -a "$f" != "UNSATISFIABLE" ];
+    then
+      model_path="${PREFIX}/all_plans/${count}"
+      human_model_intersect_domain_minus_robot_domain="${model_path}/x_pi_a.lp"
     
-    clingo ${union_human_model_intersect_domain_minus_robot_domain} --outf=0 -V0 --out-atomf=u\(%s\). --quiet=1,2,2 | head -n1 > ${temp1}
+      clingo ${union_human_model_intersect_domain_minus_robot_domain} --outf=0 -V0 --out-atomf=u\(%s\). --quiet=1,2,2 | head -n1 > ${temp1}
     
-    clingo ${human_model_intersect_domain_minus_robot_domain} --outf=0 -V0 --out-atomf=xa\(%s\). --quiet=1,2,2 | head -n1 > ${temp2}
+      clingo ${human_model_intersect_domain_minus_robot_domain} --outf=0 -V0 --out-atomf=xa\(%s\). --quiet=1,2,2 | head -n1 > ${temp2}
     
-    clingo compute_union.lp ${temp1} ${temp2} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${union_human_model_intersect_domain_minus_robot_domain}
+      clingo compute_union.lp ${temp1} ${temp2} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${union_human_model_intersect_domain_minus_robot_domain}
     
-    robot_domain_minus_human_model_intersect_domain="${model_path}/pi_a_x.lp"
+      robot_domain_minus_human_model_intersect_domain="${model_path}/pi_a_x.lp"
 
-    clingo ${union_robot_domain_minus_human_model_intersect_domain} --outf=0 -V0 --out-atomf=u\(%s\). --quiet=1,2,2 | head -n1 > ${temp1}
+      clingo ${union_robot_domain_minus_human_model_intersect_domain} --outf=0 -V0 --out-atomf=u\(%s\). --quiet=1,2,2 | head -n1 > ${temp1}
 
-    clingo ${robot_domain_minus_human_model_intersect_domain} --outf=0 -V0 --out-atomf=ax\(%s\). --quiet=1,2,2 | head -n1 > ${temp2}
+      clingo ${robot_domain_minus_human_model_intersect_domain} --outf=0 -V0 --out-atomf=ax\(%s\). --quiet=1,2,2 | head -n1 > ${temp2}
 
-    clingo compute_union.lp ${temp1} ${temp2} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${union_robot_domain_minus_human_model_intersect_domain}
+      clingo compute_union.lp ${temp1} ${temp2} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${union_robot_domain_minus_human_model_intersect_domain}
 
-    count=$(($count+1))
-    print ""
-  fi
-done < ${ALL_PLANS}
+      count=$(($count+1))
+      print ""
+    fi
+  done < ${ALL_PLANS}
+  
+  ADD_RULES=${union_robot_domain_minus_human_model_intersect_domain}
+  REMOVE_RULES=${union_human_model_intersect_domain_minus_robot_domain}
+fi
 
 print "==== Compute all possible explanations from the union"
 rm -r "${PREFIX}/all_expl"
 mkdir "${PREFIX}/all_expl"
 
-clingo ${union_human_model_intersect_domain_minus_robot_domain} --outf=0 -V0 --out-atomf=h_r\(%s\). --quiet=1,2,2 | head -n1 > ${union_human_model_intersect_domain_minus_robot_domain_in_wrapper}
+union_human_model_intersect_domain_minus_robot_domain_in_wrapper="${PREFIX}/union_x_pi_a_in_wrapper.lp"
+union_robot_domain_minus_human_model_intersect_domain_in_wrapper="${PREFIX}/union_pi_a_x_in_wrapper.lp"
 
-clingo ${union_robot_domain_minus_human_model_intersect_domain} --outf=0 -V0 --out-atomf=r_h\(%s\). --quiet=1,2,2 | head -n1 > ${union_robot_domain_minus_human_model_intersect_domain_in_wrapper}
+clingo ${REMOVE_RULES} --outf=0 -V0 --out-atomf=h_r\(%s\). --quiet=1,2,2 | head -n1 > ${union_human_model_intersect_domain_minus_robot_domain_in_wrapper}
 
-# empty all_plans file
+clingo ${ADD_RULES} --outf=0 -V0 --out-atomf=r_h\(%s\). --quiet=1,2,2 | head -n1 > ${union_robot_domain_minus_human_model_intersect_domain_in_wrapper}
+
 ALL_EXPL_FILE="${PREFIX}/all_expl/all_expl.lp"
-cp /dev/null ${ALL_EXPL_FILE}
 
-clingo 0 compute_subset_of_union.lp ${union_human_model_intersect_domain_minus_robot_domain_in_wrapper} ${union_robot_domain_minus_human_model_intersect_domain_in_wrapper} --outf=0 -V0 --out-atomf=%s. --quiet=0,2,2 >> ${ALL_EXPL_FILE}
-
-# compute the minimal explanation from set of explanations above
-count=1
-EXPLANATION=()
+# generate possible explanation wrt length
+exp_len=1
+MAX_LEN=999
 LENGTH=999
-while read f
+MAX_EXP_LEN=15
+EXPLANATION=()
+
+while [ ${exp_len} -le ${MAX_EXP_LEN} ]
 do
-  if [ "$f" != "SATISFIABLE" -a "$f" != "UNSATISFIABLE" ];
-  then
-    # expl_path="${PREFIX}/all_expl/${count}"
-#     [ -d "${expl_path}" ] || mkdir "${expl_path}"
-#
-#     expl="${expl_path}/expl.lp"
-#     echo $f > ${expl}
-    
-    # new_human_domain="${expl_path}/new_human_domain.lp"
-#
-#echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${new_human_domain}
-    len=$(echo ${f} | tr -cd '.' | wc -c)
-    if [ ${len} -gt ${LENGTH} ];
+  # empty all_plans file
+  cp /dev/null ${ALL_EXPL_FILE}
+  clingo 0 compute_subset_of_union.lp ${union_human_model_intersect_domain_minus_robot_domain_in_wrapper} ${union_robot_domain_minus_human_model_intersect_domain_in_wrapper} -c exp_len=${exp_len} --outf=0 -V0 --out-atomf=%s. --quiet=0,2,2 >> ${ALL_EXPL_FILE}
+
+  # compute the minimal explanation from set of explanations above
+  count=1
+  while read f
+  do
+    if [ "$f" != "SATISFIABLE" -a "$f" != "UNSATISFIABLE" ];
     then
-      continue
-    fi
+      # expl_path="${PREFIX}/all_expl/${count}"
+  #     [ -d "${expl_path}" ] || mkdir "${expl_path}"
+  #
+  #     expl="${expl_path}/expl.lp"
+  #     echo $f > ${expl}
     
-    unsat_plan=$(echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - plan_horizon.lp -c horizon=$(($call-1)) --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1)
+      # new_human_domain="${expl_path}/new_human_domain.lp"
+  #
+  #echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 > ${new_human_domain}
+      # len=$(echo ${f} | tr -cd '.' | wc -c)
+      # if [ ${len} -gt ${LENGTH} ];
+      # then
+      #   continue
+      # fi
+      
+      len=$(echo ${f} | tr -cd '.' | wc -c)
+      
+      # echo "count ${count}"
+      unsat_plan=$(echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - plan_horizon.lp -c horizon=$(($call-1)) --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1)    
     
-    if [ "$unsat_plan" == "UNSATISFIABLE" ];
-    then
-      new_sat_plan=$(echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - plan_horizon.lp -c horizon=$(($call)) --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1)
-      if [ "$new_sat_plan" != "UNSATISFIABLE" ];
+      if [ "$unsat_plan" == "UNSATISFIABLE" ];
       then
-        if [ ${LENGTH} -gt ${len} ];
+        new_sat_plan=$(echo $f | clingo - compute_new_human_domain.lp ${HUMAN_DOMAIN_FACT_IN_WRAPPER} --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1 | clingo - plan_horizon.lp -c horizon=$(($call)) --outf=0 -V0 --out-atomf=%s. --quiet=1,2,2 | head -n1)
+        if [ "$new_sat_plan" != "UNSATISFIABLE" ];
         then
-          EXPLANATION=(${count})
-          LENGTH=${len}
-        else 
-          if [ ${LENGTH} -eq ${len} ];
+          if [ ${LENGTH} -gt ${len} ];
           then
-            EXPLANATION+=( ${count} )
+            # echo ${len}
+            EXPLANATION=(${count})
+            LENGTH=${len}
+          else 
+            if [ ${LENGTH} -eq ${len} ];
+            then
+              EXPLANATION+=( ${count} )
+            fi
           fi
         fi
       fi
-    fi
         
-    count=$(($count+1))
+      count=$(($count+1))
+    fi
+  done < ${ALL_EXPL_FILE}
+  
+  if [ ${LENGTH} -lt ${MAX_LEN} ];
+  then
+    break
   fi
-done < ${ALL_EXPL_FILE}
-
+  exp_len=$(($exp_len+1))
+done
 
 array_contains () {
   local seeking=$1
@@ -258,4 +293,4 @@ do
 done < ${ALL_EXPL_FILE}
 
 print "==== Explanation ${EXPLANATION[*]}"
-print "==== Length: ${LENGTH}"
+print "==== Length of explanations: ${LENGTH}"
